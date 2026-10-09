@@ -1,0 +1,93 @@
+# ============================================================================
+#  正式训练配置：小型 CNN 基线（CNNBaseline）
+# ----------------------------------------------------------------------------
+#  用途：本项目基线模型的正式实验，用**完整数据集**训练，跑 3 个随机种子。
+#
+#  运行：
+#     conda activate sar-aircraft
+#     python src\train.py --config configs\cnn_baseline.yaml --model cnn_baseline `\
+#         --seed 42 --run-dir results\raw\cnn_seed42
+#
+#  设计要点（对应 experiment-plan.md）：
+#   · 数据划分用**固定种子 42**，三个训练种子共用**同一份划分**（G3）——
+#     注意 `split.seed` 与 `train.seeds` 是两码事，前者固定，后者变化。
+#   · 归一化统计量只在训练集上算（IC0.3）
+#   · 增强只作用于训练集（IC2）
+#   · 最佳模型依据**验证集 Macro F1** 选择，测试集只在 evaluate.py 里用一次（G2 / IC5）
+#   · 3 个种子用于报告均值与波动（G4）
+# ============================================================================
+
+_base_: default.yaml
+
+run:
+  mode: formal                # formal → 图表写入项目 figures/；metrics.json 标记 is_smoke=false
+  tag: cnn
+
+data:
+  max_per_class: null         # ★ 完整数据集（冒烟测试的"每类 10 张"在这里被解除）
+  image_size: 96
+  audit_sample: null          # 全量图像审计（结果带缓存，重复运行会复用）
+
+split:
+  seed: 42                    # ★ 划分种子固定，与训练种子分离
+  assert_stratify_tol: 0.01   # 分层偏差容差 1 个百分点
+
+# ---------------------------------------------------------------------------
+#  只训练基线模型（其余对照模型用别的配置单独跑）
+# ---------------------------------------------------------------------------
+models:
+  - name: cnn_baseline
+    type: CNNBaseline
+    input_channels: 1         # 灰度图 → 第一层卷积 in_channels=1，不做三通道复制
+    base_channels: 32         # 32/64/128/128 通道，参数量 241,382
+    dropout: 0.5
+    enabled: true
+
+# ---------------------------------------------------------------------------
+#  训练超参
+# ---------------------------------------------------------------------------
+train:
+  epochs: 40                  # ★ 上限 40 轮；配合早停（patience=10）实际通常更早停
+  batch_size: 64              # 训练集约 2394 张 → 每轮约 38 个 batch
+  optimizer: AdamW
+  lr: 0.001                   # AdamW 的常规起点；配合 cosine 衰减
+  lr_backbone: 0.0001         # 仅 ResNet18 微调时使用，这里不生效
+  weight_decay: 0.0001
+  scheduler: cosine           # 余弦退火到 0
+  loss: CrossEntropyLoss
+  class_weights: null         # 类别轻度不均衡（1.148:1），不做重采样；以 Macro F1 为主指标
+  early_stopping:
+    enabled: true
+    monitor: val_macro_f1     # ★ 依据验证集 Macro F1 早停与选模型
+    patience: 10
+    mode: max
+  amp: true                   # RTX 4060 上启用混合精度
+  num_workers: 2
+  seeds: [42, 123, 2024]      # ★ 你指定的三个随机种子（G4：报告均值与波动）
+
+# ---------------------------------------------------------------------------
+#  评估与错误分析
+# ---------------------------------------------------------------------------
+evaluate:
+  split: test                 # 测试集只在 evaluate.py 中使用一次
+  checkpoint: best_val_macro_f1
+
+error_analysis:
+  export_correct_per_class: 6
+  export_all_wrong: true      # 错误样例全部保留（G6）
+  export_uncertain_topk: 50
+  uncertain_metric: max_softmax
+
+gradcam:
+  enabled: true
+  n_correct_per_class: 3
+  n_wrong_max: 20
+  n_uncertain: 10
+
+# ---------------------------------------------------------------------------
+#  与本次基线实验无关的部分先关掉（保持单项实验干净）
+# ---------------------------------------------------------------------------
+channel_ablation:
+  enabled: false
+sensitivity:
+  enabled: false

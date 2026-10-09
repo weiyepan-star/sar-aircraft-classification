@@ -1,0 +1,110 @@
+# ============================================================================
+#  正式训练配置：ResNet18 迁移学习（ResNet18Transfer）
+# ----------------------------------------------------------------------------
+#  用途：与 CNN 基线做**受控对比**。除模型本身外，其余设置与
+#        configs/cnn_baseline.yaml **完全一致**，否则比较会被混淆。
+#
+#  运行：
+#     conda activate sar-aircraft
+#     python src\train.py --config configs\resnet18_transfer.yaml `
+#         --model resnet18_transfer --seed 42 --run-dir results\raw\resnet18_seed42
+#
+#  与 CNN 基线保持一致的项（关键的"控制变量"）：
+#     · 去重规则        —— 同一套（跨类重复两侧全删）
+#     · 划分种子        —— split.seed = 42，**两模型共用同一份划分**
+#     · 输入尺寸        —— 96 × 96
+#     · 归一化          —— 只用训练集统计量（见下方说明）
+#     · 数据增强        —— 同一套，且只作用于训练集
+#     · 轮数 / batch    —— 40 轮、batch 64
+#     · 随机种子        —— 42 / 123 / 2024
+#     · 模型选择依据    —— 验证集 Macro F1；测试集只用一次
+# ============================================================================
+
+_base_: default.yaml
+
+run:
+  mode: formal
+  tag: resnet18
+
+data:
+  max_per_class: null         # 完整数据集
+  image_size: 96              # ★ 与基线一致（改尺寸会同时改变两个模型的输入）
+  audit_sample: null
+
+split:
+  seed: 42                    # ★ 与基线同一个划分种子 → 共用同一份划分
+  assert_stratify_tol: 0.01
+
+# ---------------------------------------------------------------------------
+#  模型
+# ---------------------------------------------------------------------------
+models:
+  - name: resnet18_transfer
+    type: ResNet18Transfer
+    pretrained: true
+    weights: IMAGENET1K_V1    # torchvision 官方 ImageNet-1k 权重（来源见 resnet18_transfer.py）
+    freeze_policy: partial    # ★ 冻结 conv1/bn1/layer1/layer2，微调 layer3/layer4/fc
+    input_channels: 3         # ★ 灰度复制成 3 通道（保留全部预训练权重，不做任何改动）
+
+# ---------------------------------------------------------------------------
+#  归一化：**沿用基线的"训练集统计量"**，不用 ImageNet 统计量
+# ---------------------------------------------------------------------------
+#  理由（重要的控制变量）：
+#    本项目要回答的是"CNN 基线 vs ResNet18 迁移学习"的差异。
+#    如果两个模型用不同的归一化，那差异就**同时来自模型和预处理**，无法归因。
+#    因此这里沿用与基线相同的 normalize.mode = train_stats。
+#  （用 ImageNet 均值/方差是迁移学习的常见做法，但会引入第二个变量；
+#    已作为可选消融保留，不在本次主配置中启用。）
+normalize:
+  mode: train_stats
+  stats_source: train_split_only
+
+# ---------------------------------------------------------------------------
+#  训练超参
+# ---------------------------------------------------------------------------
+train:
+  epochs: 40                  # 与基线一致；配合早停（patience=10）
+  batch_size: 64              # 96×96 + AMP，RTX 4060 8GB 足够
+  optimizer: AdamW
+  lr: 0.001                   # ★ 分类头 fc 的学习率（新初始化的层）
+  lr_backbone: 0.0001         # ★ 可训练骨干（layer3/layer4）的学习率 = 1/10
+  weight_decay: 0.0001
+  scheduler: cosine           # 余弦退火
+  loss: CrossEntropyLoss
+  class_weights: null
+  early_stopping:
+    enabled: true
+    monitor: val_macro_f1     # ★ 依据验证集 Macro F1 早停与选模型
+    patience: 10
+    mode: max
+  amp: true
+  num_workers: 2
+  seeds: [42, 123, 2024]      # ★ 与基线相同的三个种子
+
+# ---------------------------------------------------------------------------
+#  评估与错误分析（与基线一致）
+# ---------------------------------------------------------------------------
+evaluate:
+  split: test
+  checkpoint: best_val_macro_f1
+
+error_analysis:
+  export_correct_per_class: 6
+  export_all_wrong: true
+  export_uncertain_topk: 50
+  uncertain_metric: max_softmax
+
+gradcam:
+  enabled: true
+  target_layer_resnet: layer4
+  n_correct_per_class: 3
+  n_wrong_max: 20
+  n_uncertain: 10
+
+# ---------------------------------------------------------------------------
+#  本次不启用
+# ---------------------------------------------------------------------------
+channel_ablation:
+  enabled: false
+sensitivity:
+  enabled: false

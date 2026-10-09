@@ -1,0 +1,55 @@
+# ============================================================================
+#  冒烟测试配置（smoke test）
+# ----------------------------------------------------------------------------
+#  目的：在正式实验前，用**极小规模**验证整条管线是否正常：
+#        · 数据能否正常读取（扫描 / 去重 / 划分 / 自检）
+#        · 模型输入输出维度是否正确
+#        · 损失能否反向传播（梯度是否存在）
+#        · 产物能否写入 results/raw/
+#
+#  ⚠️ 本配置的产物写入 results/raw/smoke/，**不得作为正式实验结论引用**。
+#     正式实验使用 configs/default.yaml（results/raw/formal/）。
+#
+#  运行：
+#     python src/train.py --config configs/smoke_test.yaml --model small_cnn --seed 42
+# ============================================================================
+
+_base_: default.yaml          # 继承 default.yaml，只做最小覆盖
+
+run:
+  mode: smoke                 # smoke -> results/raw/smoke/   （formal -> results/raw/formal/）
+  tag: smoke
+
+data:
+  max_per_class: 10           # ★ 每类只取 10 张（6 类 → 共 60 张）
+  audit_sample: null          # 仍做全量图像审计（3032 张，结果会缓存复用）
+
+split:
+  seed: 42                    # 固定种子 → 分层划分可复现
+  assert_stratify_tol: 0.02   # 样本量小，分层偏差容差放宽到 2 个百分点
+
+train:
+  epochs: 2                   # ★ 只跑 2 轮
+  batch_size: 4               # ★ 小 batch（每类仅 10 张，batch 不能大）
+  num_workers: 0              # Windows 下 0 更稳，避免多进程启动开销
+  seeds: [42]
+  amp: true
+  early_stopping:
+    enabled: false            # 只有 2 轮，不早停
+
+# 只测一个模型：小型 CNN 基线
+models:
+  - name: cnn_baseline
+    type: CNNBaseline
+    input_channels: 1
+    base_channels: 32
+    dropout: 0.5
+    enabled: true
+
+# 冒烟测试不做这些（正式实验才启用）
+gradcam:
+  enabled: false
+background_ablation:
+  enabled: false
+sensitivity:
+  enabled: false

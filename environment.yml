@@ -1,0 +1,87 @@
+# ============================================================================
+#  SAR 民航飞机图像六分类 —— conda 环境定义
+#  项目：sar-aircraft-classification
+#  日期：2026-10-08
+# ============================================================================
+#
+#  【本机（Windows 11 + conda 26）注意事项】
+#  conda 26 对 defaults 频道有服务条款（ToS）限制，且本机
+#  C:\ProgramData\miniconda3\.condarc 为只读，因此：
+#
+#    conda env create -f environment.yml        # 可能报 CondaToSNonInteractiveError
+#
+#  改用（已实测可行，见上一个项目的经验）：
+#
+#    conda create -y -n sar-aircraft --override-channels \
+#        -c https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge \
+#        --file environment.yml --env-spec environment.yml
+#
+#  普通机器上直接用 `conda env create -f environment.yml` 即可。
+# ============================================================================
+
+name: sar-aircraft
+
+channels:
+  - conda-forge
+  - nodefaults          # 阻止自动追加需要接受 ToS 的 defaults 频道
+
+dependencies:
+  # ---- Python ----
+  - python=3.11
+
+  # ---- 科学计算 ----
+  - numpy>=1.26,<3
+  - pandas>=2.1
+  - scipy>=1.11
+
+  # ---- 机器学习 / 评估 ----
+  - scikit-learn>=1.4        # 划分、指标（classification_report / confusion_matrix）
+
+  # ---- 可视化 ----
+  - matplotlib>=3.8
+  - seaborn>=0.13
+
+  # ---- 图像处理 ----
+  - pillow>=10.0             # 读取 JPEG、Resize、格式转换
+
+  # ---- 工程辅助 ----
+  - pyyaml>=6.0              # 读取 configs/*.yaml
+  - tqdm>=4.66               # 训练进度条
+  - tabulate>=0.9            # 汇总表美化
+
+  # ---- 交互式调试（可选，不影响复现） ----
+  - ipykernel>=6.29
+
+  - pip
+  - pip:
+      # ------------------------------------------------------------------
+      #  PyTorch（CUDA 12.4 版）——必须从 PyTorch 官方源安装，
+      #  否则会装成 CPU 版，GPU 不可用。
+      # ------------------------------------------------------------------
+      - --extra-index-url https://download.pytorch.org/whl/cu124
+      - torch==2.6.0+cu124
+      - torchvision==0.21.0+cu124
+
+      # Grad-CAM 可视化（若安装失败，可改用 src/gradcam.py 的手写 hook 实现，
+      # 不依赖此包；详见 experiment-plan.md 第 7.3 节）
+      - grad-cam>=1.5.0
+
+# ============================================================================
+#  安装完成后自检（应当全部通过）
+# ----------------------------------------------------------------------------
+#   & "C:\ProgramData\miniconda3\shell\condabin\conda-hook.ps1"
+#   conda activate sar-aircraft
+#   python -c "import torch, torchvision, numpy, pandas, sklearn, matplotlib, seaborn, PIL, yaml; \
+#              print('torch', torch.__version__); \
+#              print('cuda_available', torch.cuda.is_available()); \
+#              print('device', torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'CPU')"
+#
+#  期望输出： torch 2.6.0+cu124 / cuda_available True / device NVIDIA GeForce RTX 4060 Laptop GPU
+# ============================================================================
+
+# ============================================================================
+#  环境规模预估（参考上一个项目 iris-project：Python 3.11 + 107 包 ≈ 1.70 GB）
+#  本环境额外含 PyTorch + torchvision（CUDA 版），预计占用 4 ~ 6 GB。
+#  另：本机已存在 mnist-cnn 环境（Python 3.11.16 + torch 2.6.0+cu124），
+#      若只是想快速验证，也可直接复用该环境（见 README.md 第三节）。
+# ============================================================================

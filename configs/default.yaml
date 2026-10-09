@@ -1,0 +1,206 @@
+# ============================================================================
+#  实验默认配置 —— sar-aircraft-classification
+#  对应文档：experiment-plan.md
+#  说明：所有脚本从这里读参数；命令行参数优先级高于本文件。
+# ============================================================================
+
+project:
+  name: sar-aircraft-classification
+  seed: 42                      # 全局默认种子（划分用）
+
+paths:
+  data_root: data/SAR-ACD/images
+  results_raw: results/raw
+  results_summary: results/summary
+  figures: figures
+  report: report
+
+# ----------------------------------------------------------------------------
+# 1. 数据审计
+# ----------------------------------------------------------------------------
+audit:
+  check_decodable: true         # 逐张 verify()，记录损坏文件
+  check_channels: true          # 确认全部为单通道灰度
+  check_size: true              # 统计宽高分布与唯一尺寸组合数
+  check_brightness: true        # 全图均值/标准差
+  dedup_md5: true               # MD5 逐字节去重
+  output_json: results/raw/data_audit.json
+  output_dedup_csv: results/raw/dedup_report.csv
+
+# ----------------------------------------------------------------------------
+# 2. 去重（划分之前执行，不可跳过）
+# ----------------------------------------------------------------------------
+dedup:
+  enabled: true
+  cross_class_policy: drop_both  # drop_both = 跨类别重复两侧全删
+  same_class_policy: keep_first  # keep_first = 类内重复保留 1 张
+  expected_total_before: 3032
+  expected_total_after: 2990
+
+# ----------------------------------------------------------------------------
+# 3. 划分
+# ----------------------------------------------------------------------------
+split:
+  method: stratified            # 分层划分
+  seed: 42
+  ratios:
+    train: 0.70
+    val: 0.15
+    test: 0.15
+  assert_no_overlap: true       # 路径交集必须为空
+  assert_no_md5_overlap: true   # MD5 交集必须为空（防漏网泄漏）
+  assert_stratify_tol: 0.01     # 类别比例偏差 <= 1 个百分点
+  output_csv: results/raw/split_index.csv
+
+# ----------------------------------------------------------------------------
+# 4. 数据与预处理
+# ----------------------------------------------------------------------------
+data:
+  image_size: 96                # 主方案；敏感性对照：64 / 128
+  grayscale: true
+  num_classes: 6
+  class_names: [A220, A320321, A330, ARJ21, Boeing737, Boeing787]
+
+normalize:
+  mode: train_stats             # train_stats = 用训练集均值/方差（主方案）
+                                # div255      = 简单 x/255（对照）
+                                # imagenet    = 不采用（自然图像统计量）
+  stats_source: train_split_only   # 硬性要求：只用训练集计算
+
+# 数据增强（仅训练集；验证/测试只做 Resize + 归一化）
+augment:
+  train:
+    rotation_degrees: 30        # 主增强（SAR 方位角任意）
+    translate: 0.05             # ±5%
+    scale: [0.90, 1.10]
+    # 翻转：方案确认后按用户要求，由"消融"提升为主方案（见 experiment-plan.md 顶部变更记录）
+    horizontal_flip: true
+    vertical_flip: true
+    brightness_jitter: 0.0      # 不启用（会破坏 SAR 散射强度关系）
+    contrast_jitter: 0.0
+  val: {}
+  test: {}
+
+# ----------------------------------------------------------------------------
+# 5. 模型
+# ----------------------------------------------------------------------------
+models:
+  - name: cnn_baseline          # M1 基线：从零训练（4 个卷积层，单通道输入）
+    type: CNNBaseline
+    input_channels: 1           # 数据集是灰度图，第一层卷积直接对应单通道
+    base_channels: 32           # 32/64/128/128 → 约 24 万参数
+    dropout: 0.5
+    enabled: true
+
+  - name: cnn_baseline_wide     # M1-wide：参数量对齐对照（回答"是预训练有用还是参数多有用"）
+    type: CNNBaseline
+    input_channels: 1
+    base_channels: 64           # 参数量约为基线的 4 倍
+    dropout: 0.5
+    enabled: true               # 若算力紧张可置 false
+
+  - name: resnet18_frozen       # M2：冻结骨干，只训分类头
+    type: ResNet18
+    pretrained: true
+    weights: IMAGENET1K_V1
+    freeze_backbone: true
+    input_channels: 3           # 灰度复制为 3 通道（方案第 4.3 节主方案）
+    enabled: true
+
+  - name: resnet18_finetune     # M3：整体微调
+    type: ResNet18
+    pretrained: true
+    weights: IMAGENET1K_V1
+    freeze_backbone: false
+    input_channels: 3
+    enabled: true
+
+# 通道处理消融：改第一层为单通道 + 预训练权重按通道平均
+channel_ablation:
+  enabled: false
+  conv1_weight_reduce: mean
+
+# ----------------------------------------------------------------------------
+# 6. 训练
+# ----------------------------------------------------------------------------
+train:
+  epochs: 50
+  batch_size: 64
+  optimizer: AdamW
+  lr: 0.001
+  lr_backbone: 0.0001           # 微调时骨干用更小的学习率
+  weight_decay: 0.0001
+  scheduler: cosine             # cosine | plateau
+  loss: CrossEntropyLoss
+  class_weights: null           # 不做重采样；如需可填 balanced
+  early_stopping:
+    enabled: true
+    monitor: val_macro_f1
+    patience: 10
+    mode: max
+  amp: true                     # CUDA 可用时使用混合精度
+  num_workers: 2
+  seeds: [42, 2024, 3407]       # 3 个种子，报告均值与波动
+
+# ----------------------------------------------------------------------------
+# 7. 评估
+# ----------------------------------------------------------------------------
+evaluate:
+  split: test                   # 只在最终评估用一次
+  checkpoint: best_val_macro_f1 # 用验证集选出的最佳权重，绝不用测试集选
+  metrics:
+    - accuracy
+    - macro_f1
+    - weighted_f1
+    - per_class_precision
+    - per_class_recall
+    - per_class_f1
+    - confusion_matrix
+  report_mean_std: true
+  report_per_seed: true
+
+# ----------------------------------------------------------------------------
+# 8. 错误分析
+# ----------------------------------------------------------------------------
+error_analysis:
+  export_correct_per_class: 6
+  export_all_wrong: true
+  export_uncertain_topk: 50
+  export_confusion_pairs_per_pair: 6
+  uncertain_metric: max_softmax   # 最大 softmax 概率越低越不确定
+
+gradcam:
+  enabled: true
+  target_layer_resnet: layer4
+  target_layer_smallcnn: block3
+  n_correct_per_class: 3
+  n_wrong_max: 20
+  n_uncertain: 10
+  export_background_hits: true    # 筛出"分对了但 CAM 落在背景"的样例（验证 H3）
+
+# 背景裁剪消融（验证模型是否依赖背景）
+background_ablation:
+  enabled: true
+  crop_ratio: 0.30                # 裁掉外围 30% 背景
+  expect: accuracy_drop           # 若准确率明显下降 -> 模型依赖背景
+
+# 基线对照
+baselines:
+  majority_class: true            # 恒预测最多类（Boeing737）
+  shuffled_labels: true           # 打乱训练标签重训一次
+
+# ----------------------------------------------------------------------------
+# 9. 敏感性对照
+# ----------------------------------------------------------------------------
+sensitivity:
+  input_sizes: [64, 96, 128]      # 只对最终最优模型跑
+  enabled: true
+
+# ----------------------------------------------------------------------------
+# 10. 输出
+# ----------------------------------------------------------------------------
+output:
+  save_checkpoints: true
+  figures_format: [pdf, png]
+  figure_language: en             # 图内文字统一英文，避免缺字
+  summary_tables: [csv, markdown]
