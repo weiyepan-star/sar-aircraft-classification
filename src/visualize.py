@@ -390,11 +390,10 @@ def render_cam(run_dir: Path, outdir: Path, prefix: str, logger, max_rows: int =
 # ----------------------------------------------------------------------------
 #  主流程
 # ----------------------------------------------------------------------------
-def resolve_outdir(cfg: dict, run_dir: Path, mode: str) -> tuple[Path, str]:
+def resolve_outdir(cfg: dict, run_dir: Path, mode: str, project_root: Path) -> tuple[Path, str]:
     """冒烟运行的图写回自己的目录；正式运行的图进入项目 figures/ 并加运行名前缀。"""
     if mode == "formal":
-        out = Path(cfg["_project_root"]) / cfg["paths"]["figures"]
-        return out, f"{run_dir.name}__"
+        return project_root / cfg["paths"]["figures"], f"{run_dir.name}__"
     return run_dir / "figures", ""
 
 
@@ -428,7 +427,7 @@ def main() -> int:
     image_root = project_root / cfg["paths"]["data_root"]
     # 图文件格式统一为 pdf + png（见 configs/default.yaml 的 output.figures_format）
 
-    outdir, prefix = resolve_outdir(cfg, run_dir, mode)
+    outdir, prefix = resolve_outdir(cfg, run_dir, mode, project_root)
     if args.outdir:
         outdir, prefix = Path(args.outdir), ""
 
