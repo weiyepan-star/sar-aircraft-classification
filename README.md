@@ -80,7 +80,11 @@ conda create -y -n sar-aircraft --override-channels `
 ### 2.3 安装后自检
 
 ```bash
-python -c "import torch, torchvision, numpy, pandas, sklearn, matplotlib, seaborn, PIL, yaml; print('deps ok')"
+# ⚠️ 导入顺序：PIL 必须放在 torchvision 之前（见第十二节坑 3），
+#    否则会报 ImportError: DLL load failed while importing _imaging
+python -c "from PIL import Image; import torch, torchvision, numpy, pandas, sklearn, matplotlib, seaborn, yaml; print('deps ok')"
+
+# 单独确认 GPU 可用
 python -c "import torch; print(torch.__version__, torch.cuda.is_available())"
 ```
 

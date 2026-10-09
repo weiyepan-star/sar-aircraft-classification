@@ -17,7 +17,7 @@
 | Skill 名称 | `research-project-delivery` |
 | 首次启用日期 | **2026-10-08** |
 | 应用项目 | `sar-aircraft-classification`（SAR 民航飞机图像六分类） |
-| 项目路径 | `E:\sar-aircraft-classification` |
+| 项目路径 | `<PROJECT_ROOT>` |
 | 任务类型 | 图像分类 → 适用专属规则 [`references/image-classification.md`](references/image-classification.md) |
 | 当前阶段 | **② 代码阶段**（方案已确认；数据管线 / 模型 / 训练已完成，**冒烟测试通过**） |
 | 生效范围 | 自 2026-10-08 起，本项目后续**全部操作**受本 Skill 约束 |

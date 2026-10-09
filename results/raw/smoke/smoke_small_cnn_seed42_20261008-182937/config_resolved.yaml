@@ -142,8 +142,6 @@ output:
   summary_tables:
   - csv
   - markdown
-_config_path: configs\smoke_test.yaml
 run:
   mode: smoke
   tag: smoke
-_project_root: E:\sar-aircraft-classification

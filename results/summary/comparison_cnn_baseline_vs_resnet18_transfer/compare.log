@@ -4,8 +4,8 @@
 2026-10-09 11:42:42 | INFO    |     A = b92549d2030cd3c2
 2026-10-09 11:42:42 | INFO    |     B = b92549d2030cd3c2
 2026-10-09 11:42:42 | INFO    |   ✅ 同一份划分、同一套类别 —— 对比成立
-2026-10-09 11:42:42 | INFO    |   写入 E:\sar-aircraft-classification\results\summary\comparison_cnn_baseline_vs_resnet18_transfer（comparison.md / comparison.json）
-2026-10-09 11:42:44 | INFO    |   生成 12 个对比图到 E:\sar-aircraft-classification\figures
+2026-10-09 11:42:42 | INFO    |   写入 <PROJECT_ROOT>\results\summary\comparison_cnn_baseline_vs_resnet18_transfer（comparison.md / comparison.json）
+2026-10-09 11:42:44 | INFO    |   生成 12 个对比图到 <PROJECT_ROOT>\figures
 2026-10-09 11:42:44 | INFO    | ========================================================================
 2026-10-09 11:42:44 | INFO    |   Accuracy     CNN 基线=0.6293±0.0274  ResNet18 迁移学习=0.9163±0.0042  Δ=+0.2870 (阈值 0.0274) → B 显著更好
 2026-10-09 11:42:44 | INFO    |   Macro F1     CNN 基线=0.6233±0.0291  ResNet18 迁移学习=0.9147±0.0046  Δ=+0.2913 (阈值 0.0291) → B 显著更好
@@ -17,8 +17,8 @@
 2026-10-09 11:43:01 | INFO    |     A = b92549d2030cd3c2
 2026-10-09 11:43:01 | INFO    |     B = b92549d2030cd3c2
 2026-10-09 11:43:01 | INFO    |   ✅ 同一份划分、同一套类别 —— 对比成立
-2026-10-09 11:43:01 | INFO    |   写入 E:\sar-aircraft-classification\results\summary\comparison_cnn_baseline_vs_resnet18_transfer（comparison.md / comparison.json）
-2026-10-09 11:43:03 | INFO    |   生成 12 个对比图到 E:\sar-aircraft-classification\figures
+2026-10-09 11:43:01 | INFO    |   写入 <PROJECT_ROOT>\results\summary\comparison_cnn_baseline_vs_resnet18_transfer（comparison.md / comparison.json）
+2026-10-09 11:43:03 | INFO    |   生成 12 个对比图到 <PROJECT_ROOT>\figures
 2026-10-09 11:43:03 | INFO    | ========================================================================
 2026-10-09 11:43:03 | INFO    |   Accuracy     CNN 基线=0.6293±0.0274  ResNet18 迁移学习=0.9163±0.0042  Δ=+0.2870 (阈值 0.0274) → B 显著更好
 2026-10-09 11:43:03 | INFO    |   Macro F1     CNN 基线=0.6233±0.0291  ResNet18 迁移学习=0.9147±0.0046  Δ=+0.2913 (阈值 0.0291) → B 显著更好

@@ -220,7 +220,10 @@ def main() -> int:
         logger.warning(SMOKE_BANNER)
 
     # ---- 配置文件副本 ----
-    save_yaml(cfg, run_dir / "config_resolved.yaml")
+    # **剔除机器相关字段**：`_project_root` / `_config_path` 是本机绝对路径，
+    # 写进仓库后，别人克隆到别的目录时会据此把产物写回**原机器**（实测踩过这个坑）。
+    save_yaml({k: v for k, v in cfg.items() if not k.startswith("_")},
+              run_dir / "config_resolved.yaml")
 
     # ---- 设备 ----
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")

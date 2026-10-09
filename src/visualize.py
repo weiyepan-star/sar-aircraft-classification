@@ -28,7 +28,7 @@ import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from utils import (detect_run_mode, get_logger, load_config, load_json,  # noqa: E402
-                   save_figure, setup_matplotlib)
+                   resolve_project_root, save_figure, setup_matplotlib)
 
 setup_matplotlib()
 import matplotlib.pyplot as plt  # noqa: E402
@@ -420,13 +420,11 @@ def main() -> int:
     mode = detect_run_mode(run_dir)
 
     cfg_path = run_dir / "config_resolved.yaml"
-    cfg = load_config(cfg_path) if cfg_path.is_file() else {"paths": {"figures": "figures"},
-                                                            "_project_root": "."}
-    project_root = Path(cfg.get("_project_root", "."))
-    if not (project_root / "data").is_dir():
-        project_root = run_dir
-        while project_root != project_root.parent and not (project_root / "results").is_dir():
-            project_root = project_root.parent
+    cfg = load_config(cfg_path) if cfg_path.is_file() else {"paths": {"figures": "figures"}}
+    # 项目根一律从**运行目录**向上推导。
+    # ⚠️ 绝不使用 cfg 里的 `_project_root` —— 那是训练机器的绝对路径，
+    #    克隆到别处后会据此把图写回**原机器目录**（干净目录复现验证时实测踩到）。
+    project_root = resolve_project_root(run_dir)
     image_root = project_root / cfg["paths"]["data_root"]
     # 图文件格式统一为 pdf + png（见 configs/default.yaml 的 output.figures_format）
 

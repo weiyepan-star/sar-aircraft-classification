@@ -141,6 +141,28 @@ def save_yaml(obj: dict, path: str | Path) -> Path:
     return path
 
 
+def resolve_project_root(start: str | Path) -> Path:
+    """
+    从 `start`（文件或目录）向上查找项目根 —— 即同时含
+    `src/`、`configs/`、`environment.yml` 的那一层目录。
+
+    ⚠️ **为什么不能采信配置里的 `_project_root`**：
+       那一项是**训练当时那台机器**的绝对路径，会随 `config_resolved.yaml`
+       一起进入版本库。克隆到别的目录后若直接采信它，产物会被写回**原机器的路径**
+       —— 本项目在干净目录复现验证时**实测踩到过这个坑**（图表被写回了原始项目）。
+       因此所有脚本都必须从"自己在哪里"推导项目根，而不是读配置。
+    """
+    p = Path(start).resolve()
+    if p.is_file():
+        p = p.parent
+    for cand in (p, *p.parents):
+        if ((cand / "src").is_dir() and (cand / "configs").is_dir()
+                and (cand / "environment.yml").is_file()):
+            return cand
+    raise FileNotFoundError(
+        f"无法从 {start} 向上找到项目根（应含有 src/、configs/、environment.yml）")
+
+
 def detect_run_mode(run_dir: str | Path) -> str:
     """
     判定一次运行是 `smoke` 还是 `formal`。

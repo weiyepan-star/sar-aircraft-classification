@@ -17,9 +17,9 @@
 2026-10-09 11:50:57 | INFO    |     … 200/446
 2026-10-09 11:51:00 | INFO    |     … 300/446
 2026-10-09 11:51:03 | INFO    |     … 400/446
-2026-10-09 11:51:05 | INFO    |   定位指标已写入 E:\sar-aircraft-classification\results\summary\error_analysis\cam_localization.json
+2026-10-09 11:51:05 | INFO    |   定位指标已写入 <PROJECT_ROOT>\results\summary\error_analysis\cam_localization.json
 2026-10-09 11:51:05 | INFO    |   cam_in_target_ratio 均值 = 0.7675（随机基线 = 0.6985，提升 1.10×）
-2026-10-09 11:51:05 | INFO    | compute 阶段完成 → E:\sar-aircraft-classification\results\summary\error_analysis
+2026-10-09 11:51:05 | INFO    | compute 阶段完成 → <PROJECT_ROOT>\results\summary\error_analysis
 2026-10-09 11:52:25 | INFO    | ========================================================================
 2026-10-09 11:52:25 | INFO    | 【IC5】最终模型选择（**只用验证集，未使用测试集**）
 2026-10-09 11:52:25 | INFO    | ------------------------------------------------------------------------
@@ -43,5 +43,5 @@
 2026-10-09 11:52:52 | INFO    |     … 300/446
 2026-10-09 11:52:57 | INFO    |   [layer4] CAM 网格 3×3 | bbox 内占比 0.7675 (随机 0.6985, 1.10×) | mask 内占比 0.0774 (随机 0.0653, 1.18×)
 2026-10-09 11:52:57 | INFO    |   用于出图的层：layer3（CAM 网格 6×6）
-2026-10-09 11:52:57 | INFO    |   定位指标已写入 E:\sar-aircraft-classification\results\summary\error_analysis\cam_localization.json
-2026-10-09 11:52:57 | INFO    | compute 阶段完成 → E:\sar-aircraft-classification\results\summary\error_analysis
+2026-10-09 11:52:57 | INFO    |   定位指标已写入 <PROJECT_ROOT>\results\summary\error_analysis\cam_localization.json
+2026-10-09 11:52:57 | INFO    | compute 阶段完成 → <PROJECT_ROOT>\results\summary\error_analysis

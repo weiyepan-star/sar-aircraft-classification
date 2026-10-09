@@ -141,8 +141,6 @@ output:
   summary_tables:
   - csv
   - markdown
-_config_path: configs\resnet18_transfer.yaml
 run:
   mode: formal
   tag: resnet18
-_project_root: E:\sar-aircraft-classification

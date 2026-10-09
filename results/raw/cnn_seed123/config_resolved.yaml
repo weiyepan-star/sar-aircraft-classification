@@ -141,8 +141,6 @@ output:
   summary_tables:
   - csv
   - markdown
-_config_path: configs\cnn_baseline.yaml
 run:
   mode: formal
   tag: cnn
-_project_root: E:\sar-aircraft-classification

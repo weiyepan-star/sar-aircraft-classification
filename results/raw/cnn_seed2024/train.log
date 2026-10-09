@@ -1,5 +1,5 @@
 2026-10-08 19:17:30 | INFO    | ========================================================================
-2026-10-08 19:17:30 | INFO    | 运行目录 : E:\sar-aircraft-classification\results\raw\cnn_seed2024
+2026-10-08 19:17:30 | INFO    | 运行目录 : <PROJECT_ROOT>\results\raw\cnn_seed2024
 2026-10-08 19:17:30 | INFO    | 模式     : formal
 2026-10-08 19:17:30 | INFO    | 模型     : cnn_baseline (CNNBaseline)
 2026-10-08 19:17:30 | INFO    | 随机种子 : 2024
@@ -9,7 +9,7 @@
 2026-10-08 19:17:30 | INFO    | ------------------------------------------------------------------------
 2026-10-08 19:17:30 | INFO    | 构建数据管线
 2026-10-08 19:17:32 | INFO    | 扫描完成: 3032 张图像, 6 个类别
-2026-10-08 19:17:32 | INFO    | 复用已缓存的全量图像审计结果（数据集未变化）: E:\sar-aircraft-classification\results\raw\audit\data_audit.json
+2026-10-08 19:17:32 | INFO    | 复用已缓存的全量图像审计结果（数据集未变化）: <PROJECT_ROOT>\results\raw\audit\data_audit.json
 2026-10-08 19:17:32 | INFO    | 去重: 3032 → 2990 张（删除 42）| 跨类别重复 20 组（两侧全删），类内重复 2 组（保留 1 张）
 2026-10-08 19:17:32 | WARNING | 发现 20 组**跨类别重复**：同一张图被标成两种类别，已两侧剔除（见 dedup_report.csv）
 2026-10-08 19:17:32 | INFO    | 分层划分(seed=42): train=2098, val=446, test=446, 合计=2990
@@ -93,7 +93,7 @@
 2026-10-08 19:26:01 | INFO    |   最佳验证 acc  : 0.6996
 2026-10-08 19:26:01 | INFO    |   总耗时        : 8m19s
 2026-10-08 19:26:01 | INFO    |   测试集是否被使用: 否（符合 G2/IC5）
-2026-10-08 19:26:01 | INFO    |   产物目录      : E:\sar-aircraft-classification\results\raw\cnn_seed2024
+2026-10-08 19:26:01 | INFO    |   产物目录      : <PROJECT_ROOT>\results\raw\cnn_seed2024
 2026-10-08 19:26:01 | INFO    |       best_model.pt               955.1 KB
 2026-10-08 19:26:01 | INFO    |       config_resolved.yaml          2.9 KB
 2026-10-08 19:26:01 | INFO    |       dedup_report.csv              2.1 KB

@@ -1,5 +1,5 @@
 2026-10-09 12:04:37 | INFO    | 扫描完成: 3032 张图像, 6 个类别
-2026-10-09 12:04:37 | INFO    | 复用已缓存的全量图像审计结果（数据集未变化）: E:\sar-aircraft-classification\results\raw\audit\data_audit.json
+2026-10-09 12:04:37 | INFO    | 复用已缓存的全量图像审计结果（数据集未变化）: <PROJECT_ROOT>\results\raw\audit\data_audit.json
 2026-10-09 12:04:37 | INFO    | 去重: 3032 → 2990 张（删除 42）| 跨类别重复 20 组（两侧全删），类内重复 2 组（保留 1 张）
 2026-10-09 12:04:37 | WARNING | 发现 20 组**跨类别重复**：同一张图被标成两种类别，已两侧剔除（见 dedup_report.csv）
 2026-10-09 12:04:37 | INFO    | 分层划分(seed=42): train=2098, val=446, test=446, 合计=2990
@@ -8,4 +8,4 @@
 2026-10-09 12:04:43 | INFO    |   train: 2098 张 | 增强=是 | 33 个 batch
 2026-10-09 12:04:43 | INFO    |   val  :  446 张 | 增强=否 | 7 个 batch
 2026-10-09 12:04:43 | INFO    |   test :  446 张 | 增强=否 | 7 个 batch
-2026-10-09 12:04:43 | INFO    | 审计产物已写入: E:\sar-aircraft-classification\results\raw\audit
+2026-10-09 12:04:43 | INFO    | 审计产物已写入: <PROJECT_ROOT>\results\raw\audit

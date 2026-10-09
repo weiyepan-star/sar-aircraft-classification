@@ -26,7 +26,7 @@ import numpy as np
 from PIL import Image
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from utils import get_logger, load_config, load_json, save_json  # noqa: E402
+from utils import get_logger, load_config, load_json, resolve_project_root, save_json  # noqa: E402
 
 IMAGE_EXTS = {".jpg", ".jpeg", ".png", ".bmp", ".tif", ".tiff"}
 
@@ -508,7 +508,9 @@ def build_dataloaders(cfg: dict, run_dir: str | Path, logger=None,
     if logger is None:
         logger = get_logger("dataset")
 
-    root = Path(cfg["_project_root"])
+    # 项目根**从配置文件的位置推导**，不采信配置里的 _project_root
+    # （那是训练机器的绝对路径，随 config_resolved.yaml 进了版本库）
+    root = resolve_project_root(cfg.get("_config_path") or Path.cwd())
     run_dir = Path(run_dir)
     art_dir = Path(artifact_dir) if artifact_dir else run_dir
     art_dir.mkdir(parents=True, exist_ok=True)
