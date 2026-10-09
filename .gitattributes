@@ -1,0 +1,43 @@
+# ============================================================================
+#  .gitattributes —— 统一换行符
+# ----------------------------------------------------------------------------
+#  为什么必须加：
+#    Windows 的 core.autocrlf 默认为 true，检出时会把仓库里的 LF 变成 CRLF。
+#    这会让 shell 脚本在 WSL / Linux 下直接报错
+#        $'\r': command not found
+#    （本项目 report/acm/build.sh 就是靠 bash 运行的）。
+#  因此显式声明：脚本与文本一律 LF，Windows 专用脚本保持 CRLF，二进制不转换。
+# ============================================================================
+
+# 默认：交给 git 判断，仓库内统一存 LF
+* text=auto
+
+# 跨平台脚本与文本：仓库内与检出后**都保持 LF**
+*.sh    text eol=lf
+*.bash  text eol=lf
+*.py    text eol=lf
+*.md    text eol=lf
+*.tex   text eol=lf
+*.bib   text eol=lf
+*.cls   text eol=lf
+*.bst   text eol=lf
+*.yaml  text eol=lf
+*.yml   text eol=lf
+*.json  text eol=lf
+*.csv   text eol=lf
+*.txt   text eol=lf
+
+# Windows 专用脚本：保持 CRLF
+*.ps1   text eol=crlf
+*.bat   text eol=crlf
+*.cmd   text eol=crlf
+
+# 二进制：不做任何换行转换
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.pdf   binary
+*.npz   binary
+*.pt    binary
+*.pth   binary
+*.joblib binary
