@@ -1,0 +1,14 @@
+{
+  "entries": [
+    {
+      "time": "2026-10-09T11:37:35",
+      "split": "test",
+      "n_samples": 446,
+      "accuracy": 0.9192825112107623,
+      "macro_f1": 0.9176508637044368,
+      "command": "src\\evaluate.py --run results\\raw\\resnet18_seed2024"
+    }
+  ],
+  "n_evaluations": 1,
+  "policy": "测试集原则上只评估一次（G2 / IC5）"
+}

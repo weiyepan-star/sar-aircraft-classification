@@ -1,0 +1,142 @@
+{
+  "criterion": "验证集 macro-F1（不使用测试集）",
+  "test_set_used_for_selection": false,
+  "families": {
+    "cnn_baseline": {
+      "seeds": [
+        123,
+        2024,
+        42
+      ],
+      "val_macro_f1_mean": 0.6802395664819936,
+      "val_macro_f1_std": 0.011754707926989901,
+      "val_macro_f1_values": [
+        0.6690951126705227,
+        0.6964940496852653,
+        0.6751295370901929
+      ]
+    },
+    "resnet18_transfer": {
+      "seeds": [
+        123,
+        2024,
+        42
+      ],
+      "val_macro_f1_mean": 0.9199177423735311,
+      "val_macro_f1_std": 0.001139230134695228,
+      "val_macro_f1_values": [
+        0.9215251429099385,
+        0.9190193553250219,
+        0.9192087288856331
+      ]
+    }
+  },
+  "selected_family": "resnet18_transfer",
+  "selected_run": "resnet18_seed123",
+  "selected_run_dir": "E:\\sar-aircraft-classification\\results\\raw\\resnet18_seed123",
+  "selected_seed": 123,
+  "selected_val_macro_f1": 0.9215251429099385,
+  "candidates": [
+    {
+      "run_dir": "E:\\sar-aircraft-classification\\results\\raw\\resnet18_seed123",
+      "run": "resnet18_seed123",
+      "model": "resnet18_transfer",
+      "seed": 123,
+      "val_macro_f1": 0.9215251429099385,
+      "val_acc": 0.9237668161434978,
+      "best_epoch": 37,
+      "n_params": 11179590,
+      "model_type": "ResNet18Transfer"
+    },
+    {
+      "run_dir": "E:\\sar-aircraft-classification\\results\\raw\\resnet18_seed42",
+      "run": "resnet18_seed42",
+      "model": "resnet18_transfer",
+      "seed": 42,
+      "val_macro_f1": 0.9192087288856331,
+      "val_acc": 0.92152466367713,
+      "best_epoch": 35,
+      "n_params": 11179590,
+      "model_type": "ResNet18Transfer"
+    },
+    {
+      "run_dir": "E:\\sar-aircraft-classification\\results\\raw\\resnet18_seed2024",
+      "run": "resnet18_seed2024",
+      "model": "resnet18_transfer",
+      "seed": 2024,
+      "val_macro_f1": 0.9190193553250219,
+      "val_acc": 0.92152466367713,
+      "best_epoch": 34,
+      "n_params": 11179590,
+      "model_type": "ResNet18Transfer"
+    }
+  ],
+  "all_runs": [
+    {
+      "run_dir": "E:\\sar-aircraft-classification\\results\\raw\\cnn_seed123",
+      "run": "cnn_seed123",
+      "model": "cnn_baseline",
+      "seed": 123,
+      "val_macro_f1": 0.6690951126705227,
+      "val_acc": 0.6748878923766816,
+      "best_epoch": 22,
+      "n_params": 241382,
+      "model_type": "CNNBaseline"
+    },
+    {
+      "run_dir": "E:\\sar-aircraft-classification\\results\\raw\\cnn_seed2024",
+      "run": "cnn_seed2024",
+      "model": "cnn_baseline",
+      "seed": 2024,
+      "val_macro_f1": 0.6964940496852653,
+      "val_acc": 0.6995515695067265,
+      "best_epoch": 29,
+      "n_params": 241382,
+      "model_type": "CNNBaseline"
+    },
+    {
+      "run_dir": "E:\\sar-aircraft-classification\\results\\raw\\cnn_seed42",
+      "run": "cnn_seed42",
+      "model": "cnn_baseline",
+      "seed": 42,
+      "val_macro_f1": 0.6751295370901929,
+      "val_acc": 0.6816143497757847,
+      "best_epoch": 39,
+      "n_params": 241382,
+      "model_type": "CNNBaseline"
+    },
+    {
+      "run_dir": "E:\\sar-aircraft-classification\\results\\raw\\resnet18_seed123",
+      "run": "resnet18_seed123",
+      "model": "resnet18_transfer",
+      "seed": 123,
+      "val_macro_f1": 0.9215251429099385,
+      "val_acc": 0.9237668161434978,
+      "best_epoch": 37,
+      "n_params": 11179590,
+      "model_type": "ResNet18Transfer"
+    },
+    {
+      "run_dir": "E:\\sar-aircraft-classification\\results\\raw\\resnet18_seed2024",
+      "run": "resnet18_seed2024",
+      "model": "resnet18_transfer",
+      "seed": 2024,
+      "val_macro_f1": 0.9190193553250219,
+      "val_acc": 0.92152466367713,
+      "best_epoch": 34,
+      "n_params": 11179590,
+      "model_type": "ResNet18Transfer"
+    },
+    {
+      "run_dir": "E:\\sar-aircraft-classification\\results\\raw\\resnet18_seed42",
+      "run": "resnet18_seed42",
+      "model": "resnet18_transfer",
+      "seed": 42,
+      "val_macro_f1": 0.9192087288856331,
+      "val_acc": 0.92152466367713,
+      "best_epoch": 35,
+      "n_params": 11179590,
+      "model_type": "ResNet18Transfer"
+    }
+  ]
+}

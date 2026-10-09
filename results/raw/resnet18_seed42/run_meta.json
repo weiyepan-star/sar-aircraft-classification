@@ -1,0 +1,26 @@
+{
+  "run_dir": "E:\\sar-aircraft-classification\\results\\raw\\resnet18_seed42",
+  "mode": "formal",
+  "tag": "resnet18",
+  "model": "resnet18_transfer",
+  "seed": 42,
+  "seed_settings": {
+    "seed": 42,
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": false,
+    "torch_initial_seed": 42
+  },
+  "env": {
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.17",
+    "executable": "C:\\Users\\18052\\.conda\\envs\\sar-aircraft\\python.exe",
+    "numpy": "2.4.6",
+    "torch": "2.6.0+cu124",
+    "cuda_available": true,
+    "cuda_device": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "cuda_version": "12.4",
+    "sklearn": "1.9.1"
+  },
+  "config_path": "E:\\sar-aircraft-classification\\configs\\resnet18_transfer.yaml",
+  "command": "src\\train.py --config configs\\resnet18_transfer.yaml --model resnet18_transfer --seed 42 --run-dir results\\raw\\resnet18_seed42"
+}

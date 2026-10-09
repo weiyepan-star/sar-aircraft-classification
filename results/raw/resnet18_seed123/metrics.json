@@ -1,0 +1,66 @@
+{
+  "mode": "formal",
+  "is_smoke": false,
+  "model": "resnet18_transfer",
+  "model_type": "ResNet18Transfer",
+  "seed": 123,
+  "epochs_planned": 40,
+  "epochs_run": 40,
+  "best_epoch": 37,
+  "best_val_macro_f1": 0.9215251429099385,
+  "final_train_loss": 0.12814439333144317,
+  "final_val_loss": 0.21851925324698734,
+  "best_val_acc": 0.9237668161434978,
+  "total_time_sec": 490.05160450935364,
+  "n_params_total": 11179590,
+  "n_params_trainable": 10496518,
+  "class_names": [
+    "A220",
+    "A320321",
+    "A330",
+    "ARJ21",
+    "Boeing737",
+    "Boeing787"
+  ],
+  "data": {
+    "n_train": 2098,
+    "n_val": 446,
+    "n_test": 446,
+    "image_size": 96,
+    "normalize": {
+      "mean": 0.05722176315828058,
+      "std": 0.10497657020391844,
+      "mode": "train_stats"
+    }
+  },
+  "split_checks": {
+    "n": {
+      "train": 2098,
+      "val": 446,
+      "test": 446
+    },
+    "path_overlap": 0,
+    "md5_overlap": 0,
+    "max_class_proportion_deviation": 0.0012,
+    "stratify_tol": 0.01,
+    "passed": true
+  },
+  "sanity_check": {
+    "input_shape": [
+      64,
+      1,
+      96,
+      96
+    ],
+    "output_shape": [
+      64,
+      6
+    ],
+    "loss_value": 1.8272857666015625,
+    "n_grad_tensors": 32,
+    "total_grad_norm": 16.772488025948405,
+    "passed": true
+  },
+  "test_set_used_in_training": false,
+  "note": "正式实验结果"
+}

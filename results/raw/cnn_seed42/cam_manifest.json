@@ -1,0 +1,437 @@
+{
+  "run": "cnn_seed42",
+  "model": "cnn_baseline",
+  "model_type": "CNNBaseline",
+  "seed": 42,
+  "mode": "formal",
+  "image_size": 96,
+  "groups": {
+    "correct": [
+      {
+        "relpath": "A220/336.jpg",
+        "true_name": "A220",
+        "pred_name": "A220",
+        "confidence": 0.928331,
+        "correct": true,
+        "border_mass": 0.7140636647905738
+      },
+      {
+        "relpath": "A220/435.jpg",
+        "true_name": "A220",
+        "pred_name": "A220",
+        "confidence": 0.87376,
+        "correct": true,
+        "border_mass": 0.6795371164946515
+      },
+      {
+        "relpath": "A220/131.jpg",
+        "true_name": "A220",
+        "pred_name": "A220",
+        "confidence": 0.870269,
+        "correct": true,
+        "border_mass": 0.6775866999629571
+      },
+      {
+        "relpath": "A320321/502.jpg",
+        "true_name": "A320321",
+        "pred_name": "A320321",
+        "confidence": 0.788845,
+        "correct": true,
+        "border_mass": 0.583714906036875
+      },
+      {
+        "relpath": "A320321/064.jpg",
+        "true_name": "A320321",
+        "pred_name": "A320321",
+        "confidence": 0.761012,
+        "correct": true,
+        "border_mass": 0.6827266896574494
+      },
+      {
+        "relpath": "A320321/210.jpg",
+        "true_name": "A320321",
+        "pred_name": "A320321",
+        "confidence": 0.732339,
+        "correct": true,
+        "border_mass": 0.6880120256317989
+      },
+      {
+        "relpath": "A330/041.jpg",
+        "true_name": "A330",
+        "pred_name": "A330",
+        "confidence": 0.934552,
+        "correct": true,
+        "border_mass": 0.6411493514433967
+      },
+      {
+        "relpath": "A330/295.jpg",
+        "true_name": "A330",
+        "pred_name": "A330",
+        "confidence": 0.933314,
+        "correct": true,
+        "border_mass": 0.6428343347532001
+      },
+      {
+        "relpath": "A330/116.jpg",
+        "true_name": "A330",
+        "pred_name": "A330",
+        "confidence": 0.929083,
+        "correct": true,
+        "border_mass": 0.7000768777822305
+      },
+      {
+        "relpath": "ARJ21/493.jpg",
+        "true_name": "ARJ21",
+        "pred_name": "ARJ21",
+        "confidence": 0.997405,
+        "correct": true,
+        "border_mass": 0.5609660898636546
+      },
+      {
+        "relpath": "ARJ21/082.jpg",
+        "true_name": "ARJ21",
+        "pred_name": "ARJ21",
+        "confidence": 0.996467,
+        "correct": true,
+        "border_mass": 0.5863757045880976
+      },
+      {
+        "relpath": "ARJ21/231.jpg",
+        "true_name": "ARJ21",
+        "pred_name": "ARJ21",
+        "confidence": 0.994706,
+        "correct": true,
+        "border_mass": 0.5673211967067826
+      },
+      {
+        "relpath": "Boeing737/115.jpg",
+        "true_name": "Boeing737",
+        "pred_name": "Boeing737",
+        "confidence": 0.86963,
+        "correct": true,
+        "border_mass": 0.4671717593719776
+      },
+      {
+        "relpath": "Boeing737/244.jpg",
+        "true_name": "Boeing737",
+        "pred_name": "Boeing737",
+        "confidence": 0.864581,
+        "correct": true,
+        "border_mass": 0.5663787019993938
+      },
+      {
+        "relpath": "Boeing737/052.jpg",
+        "true_name": "Boeing737",
+        "pred_name": "Boeing737",
+        "confidence": 0.826587,
+        "correct": true,
+        "border_mass": 0.4774083404305079
+      },
+      {
+        "relpath": "Boeing787/288.jpg",
+        "true_name": "Boeing787",
+        "pred_name": "Boeing787",
+        "confidence": 0.912455,
+        "correct": true,
+        "border_mass": 0.7737906294757166
+      },
+      {
+        "relpath": "Boeing787/439.jpg",
+        "true_name": "Boeing787",
+        "pred_name": "Boeing787",
+        "confidence": 0.859246,
+        "correct": true,
+        "border_mass": 0.7996768425806478
+      },
+      {
+        "relpath": "Boeing787/340.jpg",
+        "true_name": "Boeing787",
+        "pred_name": "Boeing787",
+        "confidence": 0.854245,
+        "correct": true,
+        "border_mass": 0.7567088633658754
+      }
+    ],
+    "wrong": [
+      {
+        "relpath": "A220/002.jpg",
+        "true_name": "A220",
+        "pred_name": "A320321",
+        "confidence": 0.645747,
+        "correct": false,
+        "border_mass": 0.6799708754993554
+      },
+      {
+        "relpath": "A220/007.jpg",
+        "true_name": "A220",
+        "pred_name": "Boeing737",
+        "confidence": 0.426692,
+        "correct": false,
+        "border_mass": 1.1025022754056812e-14
+      },
+      {
+        "relpath": "A220/015.jpg",
+        "true_name": "A220",
+        "pred_name": "ARJ21",
+        "confidence": 0.369233,
+        "correct": false,
+        "border_mass": 0.9323542983554534
+      },
+      {
+        "relpath": "A220/018.jpg",
+        "true_name": "A220",
+        "pred_name": "A320321",
+        "confidence": 0.346399,
+        "correct": false,
+        "border_mass": 0.7756174982027749
+      },
+      {
+        "relpath": "A220/023.jpg",
+        "true_name": "A220",
+        "pred_name": "A320321",
+        "confidence": 0.462923,
+        "correct": false,
+        "border_mass": 0.6723649672156395
+      },
+      {
+        "relpath": "A220/032.jpg",
+        "true_name": "A220",
+        "pred_name": "ARJ21",
+        "confidence": 0.66551,
+        "correct": false,
+        "border_mass": 0.809954134336313
+      },
+      {
+        "relpath": "A220/035.jpg",
+        "true_name": "A220",
+        "pred_name": "A320321",
+        "confidence": 0.373641,
+        "correct": false,
+        "border_mass": 0.6103571498259421
+      },
+      {
+        "relpath": "A220/043.jpg",
+        "true_name": "A220",
+        "pred_name": "A320321",
+        "confidence": 0.658593,
+        "correct": false,
+        "border_mass": 0.7082656101101105
+      },
+      {
+        "relpath": "A220/044.jpg",
+        "true_name": "A220",
+        "pred_name": "ARJ21",
+        "confidence": 0.678183,
+        "correct": false,
+        "border_mass": 0.7450497802605344
+      },
+      {
+        "relpath": "A220/050.jpg",
+        "true_name": "A220",
+        "pred_name": "Boeing737",
+        "confidence": 0.423902,
+        "correct": false,
+        "border_mass": 0.3321978366158331
+      },
+      {
+        "relpath": "A220/077.jpg",
+        "true_name": "A220",
+        "pred_name": "Boeing737",
+        "confidence": 0.491985,
+        "correct": false,
+        "border_mass": 0.49913483492401145
+      },
+      {
+        "relpath": "A220/111.jpg",
+        "true_name": "A220",
+        "pred_name": "A320321",
+        "confidence": 0.617265,
+        "correct": false,
+        "border_mass": 0.680508706656526
+      },
+      {
+        "relpath": "A220/124.jpg",
+        "true_name": "A220",
+        "pred_name": "ARJ21",
+        "confidence": 0.363865,
+        "correct": false,
+        "border_mass": 0.9024348767795017
+      },
+      {
+        "relpath": "A220/138.jpg",
+        "true_name": "A220",
+        "pred_name": "A320321",
+        "confidence": 0.472904,
+        "correct": false,
+        "border_mass": 0.7687887489672564
+      },
+      {
+        "relpath": "A220/141.jpg",
+        "true_name": "A220",
+        "pred_name": "ARJ21",
+        "confidence": 0.625963,
+        "correct": false,
+        "border_mass": 0.846961576741134
+      },
+      {
+        "relpath": "A220/143.jpg",
+        "true_name": "A220",
+        "pred_name": "Boeing737",
+        "confidence": 0.604486,
+        "correct": false,
+        "border_mass": 0.523323439180283
+      },
+      {
+        "relpath": "A220/165.jpg",
+        "true_name": "A220",
+        "pred_name": "Boeing737",
+        "confidence": 0.317233,
+        "correct": false,
+        "border_mass": 0.1250438500595658
+      },
+      {
+        "relpath": "A220/177.jpg",
+        "true_name": "A220",
+        "pred_name": "ARJ21",
+        "confidence": 0.696329,
+        "correct": false,
+        "border_mass": 0.6286196781486103
+      },
+      {
+        "relpath": "A220/192.jpg",
+        "true_name": "A220",
+        "pred_name": "A320321",
+        "confidence": 0.678153,
+        "correct": false,
+        "border_mass": 0.5562070934712084
+      },
+      {
+        "relpath": "A220/196.jpg",
+        "true_name": "A220",
+        "pred_name": "ARJ21",
+        "confidence": 0.459963,
+        "correct": false,
+        "border_mass": 0.66762823125238
+      }
+    ],
+    "background": [
+      {
+        "relpath": "ARJ21/493.jpg",
+        "true_name": "ARJ21",
+        "pred_name": "ARJ21",
+        "confidence": 0.997405,
+        "correct": true,
+        "border_mass": 0.5609660898636546
+      },
+      {
+        "relpath": "ARJ21/082.jpg",
+        "true_name": "ARJ21",
+        "pred_name": "ARJ21",
+        "confidence": 0.996467,
+        "correct": true,
+        "border_mass": 0.5863757045880976
+      },
+      {
+        "relpath": "ARJ21/231.jpg",
+        "true_name": "ARJ21",
+        "pred_name": "ARJ21",
+        "confidence": 0.994706,
+        "correct": true,
+        "border_mass": 0.5673211967067826
+      },
+      {
+        "relpath": "A330/041.jpg",
+        "true_name": "A330",
+        "pred_name": "A330",
+        "confidence": 0.934552,
+        "correct": true,
+        "border_mass": 0.6411493514433967
+      },
+      {
+        "relpath": "A330/295.jpg",
+        "true_name": "A330",
+        "pred_name": "A330",
+        "confidence": 0.933314,
+        "correct": true,
+        "border_mass": 0.6428343347532001
+      },
+      {
+        "relpath": "A330/116.jpg",
+        "true_name": "A330",
+        "pred_name": "A330",
+        "confidence": 0.929083,
+        "correct": true,
+        "border_mass": 0.7000768777822305
+      },
+      {
+        "relpath": "A220/336.jpg",
+        "true_name": "A220",
+        "pred_name": "A220",
+        "confidence": 0.928331,
+        "correct": true,
+        "border_mass": 0.7140636647905738
+      },
+      {
+        "relpath": "Boeing787/288.jpg",
+        "true_name": "Boeing787",
+        "pred_name": "Boeing787",
+        "confidence": 0.912455,
+        "correct": true,
+        "border_mass": 0.7737906294757166
+      },
+      {
+        "relpath": "A220/435.jpg",
+        "true_name": "A220",
+        "pred_name": "A220",
+        "confidence": 0.87376,
+        "correct": true,
+        "border_mass": 0.6795371164946515
+      },
+      {
+        "relpath": "A220/131.jpg",
+        "true_name": "A220",
+        "pred_name": "A220",
+        "confidence": 0.870269,
+        "correct": true,
+        "border_mass": 0.6775866999629571
+      },
+      {
+        "relpath": "Boeing737/244.jpg",
+        "true_name": "Boeing737",
+        "pred_name": "Boeing737",
+        "confidence": 0.864581,
+        "correct": true,
+        "border_mass": 0.5663787019993938
+      },
+      {
+        "relpath": "Boeing787/439.jpg",
+        "true_name": "Boeing787",
+        "pred_name": "Boeing787",
+        "confidence": 0.859246,
+        "correct": true,
+        "border_mass": 0.7996768425806478
+      }
+    ]
+  },
+  "border_mass_ratio": {
+    "threshold": 0.5,
+    "mean": 0.6388008038395907,
+    "n_above_threshold": 12
+  },
+  "background_ablation": {
+    "border_ratio": 0.3,
+    "n_test": 446,
+    "baseline_accuracy": 0.6390134529147982,
+    "border_filled_accuracy": 0.17040358744394618,
+    "delta_fill": -0.468609865470852,
+    "center_cropped_accuracy": 0.19282511210762332,
+    "delta_crop": -0.44618834080717484,
+    "target_bbox_outside_center_ratio": 0.8068485821294811,
+    "confounded": true,
+    "verdict": "无法判定 —— 填充外围会同时切除大部分机体（目标外接框有 81% 落在保留区之外），该消融不能区分「背景」与「目标」，H3 不能据此确认",
+    "enabled": true,
+    "note": "fill = 外围替换为训练集均值；crop = 中心裁剪后放大。本数据集目标占画面约 3/4，两种扰动都会切除机体，结论仅供参考。",
+    "evaluate_metrics_accuracy": 0.6390134529147982
+  },
+  "note": "本数据集无目标框标注；border_mass_ratio = 热力图在中心 50% 区域之外的响应占比，是可复现的代理指标。图由 src/visualize.py --fig cam 渲染（避免 torch 与 matplotlib 同进程触发 OMP 冲突）"
+}

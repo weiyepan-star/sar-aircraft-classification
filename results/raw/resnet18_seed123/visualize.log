@@ -1,0 +1,95 @@
+2026-10-09 11:36:44 | INFO    | ========================================================================
+2026-10-09 11:36:44 | INFO    | 生成图表: resnet18_seed123
+2026-10-09 11:36:44 | INFO    | 模式      : formal | 输出目录: E:\sar-aircraft-classification\figures
+2026-10-09 11:36:44 | INFO    | ------------------------------------------------------------------------
+2026-10-09 11:36:44 | INFO    | fig1 训练曲线
+2026-10-09 11:36:45 | INFO    |   训练曲线: 40 轮，最佳 macro-F1 在第 37 轮
+2026-10-09 11:36:45 | INFO    | ------------------------------------------------------------------------
+2026-10-09 11:36:45 | INFO    | fig3 混淆矩阵与每类指标
+2026-10-09 11:36:46 | INFO    |   每类 F1: {'A220': 0.8321, 'A320321': 0.8026, 'A330': 0.9669, 'ARJ21': 0.9589, 'Boeing737': 0.9625, 'Boeing787': 0.9863}
+2026-10-09 11:36:46 | INFO    | ------------------------------------------------------------------------
+2026-10-09 11:36:46 | INFO    | fig4 错误样例可视化
+2026-10-09 11:37:12 | INFO    | ------------------------------------------------------------------------
+2026-10-09 11:37:12 | INFO    | fig0 数据探索
+2026-10-09 11:37:15 | INFO    |   数据探索图已生成
+2026-10-09 11:37:15 | INFO    | ------------------------------------------------------------------------
+2026-10-09 11:37:15 | INFO    | fig5 Grad-CAM 可解释性（数据来自 gradcam.py）
+2026-10-09 11:37:15 | WARNING | 未找到 cam_data.npz / cam_manifest.json，请先运行 src/gradcam.py；跳过 fig5
+2026-10-09 11:37:15 | INFO    | ========================================================================
+2026-10-09 11:37:15 | INFO    | 共生成 22 个图文件：
+2026-10-09 11:37:15 | INFO    |   resnet18_seed123__fig1a_train_curve_resnet18_transfer_seed123.pdf    21.3 KB
+2026-10-09 11:37:15 | INFO    |   resnet18_seed123__fig1a_train_curve_resnet18_transfer_seed123.png    84.9 KB
+2026-10-09 11:37:15 | INFO    |   resnet18_seed123__fig1b_metric_curve_resnet18_transfer_seed123.pdf    23.2 KB
+2026-10-09 11:37:15 | INFO    |   resnet18_seed123__fig1b_metric_curve_resnet18_transfer_seed123.png    91.4 KB
+2026-10-09 11:37:15 | INFO    |   resnet18_seed123__fig3a_confusion_matrix.pdf                        23.8 KB
+2026-10-09 11:37:15 | INFO    |   resnet18_seed123__fig3a_confusion_matrix.png                        89.6 KB
+2026-10-09 11:37:15 | INFO    |   resnet18_seed123__fig3b_confusion_matrix_norm.pdf                   24.4 KB
+2026-10-09 11:37:15 | INFO    |   resnet18_seed123__fig3b_confusion_matrix_norm.png                  101.5 KB
+2026-10-09 11:37:15 | INFO    |   resnet18_seed123__fig3c_per_class_metrics.pdf                       17.6 KB
+2026-10-09 11:37:15 | INFO    |   resnet18_seed123__fig3c_per_class_metrics.png                       70.7 KB
+2026-10-09 11:37:15 | INFO    |   resnet18_seed123__fig3d_per_class_f1_rank.pdf                       16.5 KB
+2026-10-09 11:37:15 | INFO    |   resnet18_seed123__fig3d_per_class_f1_rank.png                       55.8 KB
+2026-10-09 11:37:15 | INFO    |   resnet18_seed123__fig4a_correct_samples.pdf                        507.9 KB
+2026-10-09 11:37:15 | INFO    |   resnet18_seed123__fig4a_correct_samples.png                        752.3 KB
+2026-10-09 11:37:15 | INFO    |   resnet18_seed123__fig4b_wrong_samples.pdf                          358.9 KB
+2026-10-09 11:37:15 | INFO    |   resnet18_seed123__fig4b_wrong_samples.png                          637.1 KB
+2026-10-09 11:37:15 | INFO    |   resnet18_seed123__fig4c_uncertain_samples.pdf                      242.0 KB
+2026-10-09 11:37:15 | INFO    |   resnet18_seed123__fig4c_uncertain_samples.png                      443.6 KB
+2026-10-09 11:37:15 | INFO    |   resnet18_seed123__fig4d_confusion_pairs.pdf                        295.9 KB
+2026-10-09 11:37:15 | INFO    |   resnet18_seed123__fig4d_confusion_pairs.png                        530.4 KB
+2026-10-09 11:37:15 | INFO    |   resnet18_seed123__fig0_data_eda.pdf                                102.0 KB
+2026-10-09 11:37:15 | INFO    |   resnet18_seed123__fig0_data_eda.png                                265.2 KB
+2026-10-09 11:37:15 | INFO    | ========================================================================
+2026-10-09 11:40:13 | INFO    | ========================================================================
+2026-10-09 11:40:13 | INFO    | 生成图表: resnet18_seed123
+2026-10-09 11:40:13 | INFO    | 模式      : formal | 输出目录: E:\sar-aircraft-classification\figures
+2026-10-09 11:40:13 | INFO    | ------------------------------------------------------------------------
+2026-10-09 11:40:13 | INFO    | fig1 训练曲线
+2026-10-09 11:40:14 | INFO    |   训练曲线: 40 轮，最佳 macro-F1 在第 37 轮
+2026-10-09 11:40:14 | INFO    | ------------------------------------------------------------------------
+2026-10-09 11:40:14 | INFO    | fig3 混淆矩阵与每类指标
+2026-10-09 11:40:15 | INFO    |   每类 F1: {'A220': 0.8321, 'A320321': 0.8026, 'A330': 0.9669, 'ARJ21': 0.9589, 'Boeing737': 0.9625, 'Boeing787': 0.9863}
+2026-10-09 11:40:15 | INFO    | ------------------------------------------------------------------------
+2026-10-09 11:40:15 | INFO    | fig4 错误样例可视化
+2026-10-09 11:40:43 | INFO    | ------------------------------------------------------------------------
+2026-10-09 11:40:43 | INFO    | fig0 数据探索
+2026-10-09 11:40:45 | INFO    |   数据探索图已生成
+2026-10-09 11:40:45 | INFO    | ------------------------------------------------------------------------
+2026-10-09 11:40:45 | INFO    | fig5 Grad-CAM 可解释性（数据来自 gradcam.py）
+2026-10-09 11:40:54 | INFO    |   fig5a_gradcam_correct                    16 张
+2026-10-09 11:41:06 | INFO    |   fig5b_gradcam_wrong                      16 张
+2026-10-09 11:41:16 | INFO    |   fig5c_gradcam_background                 12 张
+2026-10-09 11:41:17 | INFO    |   fig5d_background_ablation                Δfill=-0.7220  Δcrop=-0.3857
+2026-10-09 11:41:17 | INFO    | ========================================================================
+2026-10-09 11:41:17 | INFO    | 共生成 30 个图文件：
+2026-10-09 11:41:17 | INFO    |   resnet18_seed123__fig1a_train_curve_resnet18_transfer_seed123.pdf    21.3 KB
+2026-10-09 11:41:17 | INFO    |   resnet18_seed123__fig1a_train_curve_resnet18_transfer_seed123.png    84.9 KB
+2026-10-09 11:41:17 | INFO    |   resnet18_seed123__fig1b_metric_curve_resnet18_transfer_seed123.pdf    23.2 KB
+2026-10-09 11:41:17 | INFO    |   resnet18_seed123__fig1b_metric_curve_resnet18_transfer_seed123.png    91.4 KB
+2026-10-09 11:41:17 | INFO    |   resnet18_seed123__fig3a_confusion_matrix.pdf                        23.8 KB
+2026-10-09 11:41:17 | INFO    |   resnet18_seed123__fig3a_confusion_matrix.png                        89.6 KB
+2026-10-09 11:41:17 | INFO    |   resnet18_seed123__fig3b_confusion_matrix_norm.pdf                   24.4 KB
+2026-10-09 11:41:17 | INFO    |   resnet18_seed123__fig3b_confusion_matrix_norm.png                  101.5 KB
+2026-10-09 11:41:17 | INFO    |   resnet18_seed123__fig3c_per_class_metrics.pdf                       17.6 KB
+2026-10-09 11:41:17 | INFO    |   resnet18_seed123__fig3c_per_class_metrics.png                       70.7 KB
+2026-10-09 11:41:17 | INFO    |   resnet18_seed123__fig3d_per_class_f1_rank.pdf                       16.5 KB
+2026-10-09 11:41:17 | INFO    |   resnet18_seed123__fig3d_per_class_f1_rank.png                       55.8 KB
+2026-10-09 11:41:17 | INFO    |   resnet18_seed123__fig4a_correct_samples.pdf                        507.9 KB
+2026-10-09 11:41:17 | INFO    |   resnet18_seed123__fig4a_correct_samples.png                        752.3 KB
+2026-10-09 11:41:17 | INFO    |   resnet18_seed123__fig4b_wrong_samples.pdf                          358.9 KB
+2026-10-09 11:41:17 | INFO    |   resnet18_seed123__fig4b_wrong_samples.png                          637.1 KB
+2026-10-09 11:41:17 | INFO    |   resnet18_seed123__fig4c_uncertain_samples.pdf                      242.0 KB
+2026-10-09 11:41:17 | INFO    |   resnet18_seed123__fig4c_uncertain_samples.png                      443.6 KB
+2026-10-09 11:41:17 | INFO    |   resnet18_seed123__fig4d_confusion_pairs.pdf                        295.9 KB
+2026-10-09 11:41:17 | INFO    |   resnet18_seed123__fig4d_confusion_pairs.png                        530.4 KB
+2026-10-09 11:41:17 | INFO    |   resnet18_seed123__fig0_data_eda.pdf                                102.0 KB
+2026-10-09 11:41:17 | INFO    |   resnet18_seed123__fig0_data_eda.png                                265.2 KB
+2026-10-09 11:41:17 | INFO    |   resnet18_seed123__fig5a_gradcam_correct.pdf                        680.9 KB
+2026-10-09 11:41:17 | INFO    |   resnet18_seed123__fig5a_gradcam_correct.png                        994.9 KB
+2026-10-09 11:41:17 | INFO    |   resnet18_seed123__fig5b_gradcam_wrong.pdf                          659.7 KB
+2026-10-09 11:41:17 | INFO    |   resnet18_seed123__fig5b_gradcam_wrong.png                          969.2 KB
+2026-10-09 11:41:17 | INFO    |   resnet18_seed123__fig5c_gradcam_background.pdf                     523.7 KB
+2026-10-09 11:41:17 | INFO    |   resnet18_seed123__fig5c_gradcam_background.png                     783.8 KB
+2026-10-09 11:41:17 | INFO    |   resnet18_seed123__fig5d_background_ablation.pdf                     39.2 KB
+2026-10-09 11:41:17 | INFO    |   resnet18_seed123__fig5d_background_ablation.png                     82.9 KB
+2026-10-09 11:41:17 | INFO    | ========================================================================

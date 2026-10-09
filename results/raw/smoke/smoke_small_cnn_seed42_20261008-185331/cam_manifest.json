@@ -1,0 +1,94 @@
+{
+  "run": "smoke_small_cnn_seed42_20261008-185331",
+  "model": "small_cnn",
+  "model_type": "SmallCNN",
+  "seed": 42,
+  "mode": "smoke",
+  "image_size": 96,
+  "groups": {
+    "correct": [
+      {
+        "relpath": "A320321/002.jpg",
+        "true_name": "A320321",
+        "pred_name": "A320321",
+        "confidence": 0.260652,
+        "correct": true,
+        "border_mass": 0.713323661272076
+      },
+      {
+        "relpath": "ARJ21/004.jpg",
+        "true_name": "ARJ21",
+        "pred_name": "ARJ21",
+        "confidence": 0.244851,
+        "correct": true,
+        "border_mass": 0.7116952320025057
+      }
+    ],
+    "wrong": [
+      {
+        "relpath": "A220/009.jpg",
+        "true_name": "A220",
+        "pred_name": "ARJ21",
+        "confidence": 0.248468,
+        "correct": false,
+        "border_mass": 0.6464797242401419
+      },
+      {
+        "relpath": "A330/002.jpg",
+        "true_name": "A330",
+        "pred_name": "A320321",
+        "confidence": 0.264494,
+        "correct": false,
+        "border_mass": 0.7054733027847345
+      },
+      {
+        "relpath": "Boeing737/008.jpg",
+        "true_name": "Boeing737",
+        "pred_name": "ARJ21",
+        "confidence": 0.284679,
+        "correct": false,
+        "border_mass": 0.7109530053431531
+      },
+      {
+        "relpath": "Boeing787/004.jpg",
+        "true_name": "Boeing787",
+        "pred_name": "A320321",
+        "confidence": 0.253353,
+        "correct": false,
+        "border_mass": 0.742903825982051
+      }
+    ],
+    "background": [
+      {
+        "relpath": "A320321/002.jpg",
+        "true_name": "A320321",
+        "pred_name": "A320321",
+        "confidence": 0.260652,
+        "correct": true,
+        "border_mass": 0.713323661272076
+      },
+      {
+        "relpath": "ARJ21/004.jpg",
+        "true_name": "ARJ21",
+        "pred_name": "ARJ21",
+        "confidence": 0.244851,
+        "correct": true,
+        "border_mass": 0.7116952320025057
+      }
+    ]
+  },
+  "border_mass_ratio": {
+    "threshold": 0.5,
+    "mean": 0.7069809556124056,
+    "n_above_threshold": 2
+  },
+  "background_ablation": {
+    "crop_ratio": 0.3,
+    "cropped_accuracy": 0.3333333333333333,
+    "n_test": 6,
+    "baseline_accuracy": 0.3333333333333333,
+    "enabled": true,
+    "delta": 0.0
+  },
+  "note": "本数据集无目标框标注；border_mass_ratio = 热力图在中心 50% 区域之外的响应占比，是可复现的代理指标。图由 src/visualize.py --fig cam 渲染（避免 torch 与 matplotlib 同进程触发 OMP 冲突）"
+}

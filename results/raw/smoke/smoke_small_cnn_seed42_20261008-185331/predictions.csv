@@ -1,0 +1,7 @@
+relpath,class_name,true_label,true_name,pred_label,pred_name,confidence,correct
+A220/009.jpg,A220,0,A220,3,ARJ21,0.248468,False
+A320321/002.jpg,A320321,1,A320321,1,A320321,0.260652,True
+A330/002.jpg,A330,2,A330,1,A320321,0.264494,False
+ARJ21/004.jpg,ARJ21,3,ARJ21,3,ARJ21,0.244851,True
+Boeing737/008.jpg,Boeing737,4,Boeing737,3,ARJ21,0.284679,False
+Boeing787/004.jpg,Boeing787,5,Boeing787,1,A320321,0.253353,False

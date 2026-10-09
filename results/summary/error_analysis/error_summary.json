@@ -1,0 +1,180 @@
+{
+  "selected_run": "resnet18_seed123",
+  "selected_family": "resnet18_transfer",
+  "selected_seed": 123,
+  "selected_val_macro_f1": 0.9215251429099385,
+  "test_set_used_for_selection": false,
+  "n_test": 446,
+  "n_wrong": 36,
+  "n_correct": 410,
+  "error_rate": 0.08071748878923767,
+  "mean_conf_wrong": 0.7599347222222222,
+  "mean_conf_correct": 0.958271524390244,
+  "error_directions": [
+    {
+      "true": "A220",
+      "pred": "A320321",
+      "count": 11,
+      "frac_of_errors": 0.3055555555555556,
+      "mean_conf": 0.7847425454545455
+    },
+    {
+      "true": "A320321",
+      "pred": "A220",
+      "count": 8,
+      "frac_of_errors": 0.2222222222222222,
+      "mean_conf": 0.764650125
+    },
+    {
+      "true": "ARJ21",
+      "pred": "A320321",
+      "count": 3,
+      "frac_of_errors": 0.08333333333333333,
+      "mean_conf": 0.7341153333333333
+    },
+    {
+      "true": "A320321",
+      "pred": "A330",
+      "count": 3,
+      "frac_of_errors": 0.08333333333333333,
+      "mean_conf": 0.7893943333333334
+    },
+    {
+      "true": "A320321",
+      "pred": "Boeing737",
+      "count": 2,
+      "frac_of_errors": 0.05555555555555555,
+      "mean_conf": 0.7854705
+    },
+    {
+      "true": "ARJ21",
+      "pred": "A220",
+      "count": 2,
+      "frac_of_errors": 0.05555555555555555,
+      "mean_conf": 0.730285
+    },
+    {
+      "true": "Boeing787",
+      "pred": "A320321",
+      "count": 1,
+      "frac_of_errors": 0.027777777777777776,
+      "mean_conf": 0.980463
+    },
+    {
+      "true": "A220",
+      "pred": "Boeing737",
+      "count": 1,
+      "frac_of_errors": 0.027777777777777776,
+      "mean_conf": 0.897365
+    },
+    {
+      "true": "ARJ21",
+      "pred": "Boeing737",
+      "count": 1,
+      "frac_of_errors": 0.027777777777777776,
+      "mean_conf": 0.877094
+    },
+    {
+      "true": "A330",
+      "pred": "Boeing787",
+      "count": 1,
+      "frac_of_errors": 0.027777777777777776,
+      "mean_conf": 0.677492
+    },
+    {
+      "true": "Boeing737",
+      "pred": "A320321",
+      "count": 1,
+      "frac_of_errors": 0.027777777777777776,
+      "mean_conf": 0.638186
+    },
+    {
+      "true": "A330",
+      "pred": "A320321",
+      "count": 1,
+      "frac_of_errors": 0.027777777777777776,
+      "mean_conf": 0.601059
+    },
+    {
+      "true": "Boeing737",
+      "pred": "A220",
+      "count": 1,
+      "frac_of_errors": 0.027777777777777776,
+      "mean_conf": 0.334582
+    }
+  ],
+  "most_confused_pair": {
+    "a": "A220",
+    "b": "A320321",
+    "a_to_b": 0.15942028985507245,
+    "b_to_a": 0.10810810810810811,
+    "combined_frac_of_errors": 0.5277777777777778
+  },
+  "pair_shape_stats": {
+    "A220": {
+      "n": 69,
+      "img_w_median": 82.0,
+      "img_h_median": 72.0,
+      "aspect_median": 1.1369863013698631,
+      "brightness_mean": 17.428704647242352,
+      "target_area_median": 0.7242838541666666
+    },
+    "A320321": {
+      "n": 74,
+      "img_w_median": 92.0,
+      "img_h_median": 78.0,
+      "aspect_median": 1.237745502558178,
+      "brightness_mean": 14.761544259102852,
+      "target_area_median": 0.8319227430555556
+    },
+    "_relative_diff": {
+      "img_w_median": 0.11494252873563218,
+      "img_h_median": 0.08,
+      "aspect_median": 0.08485943635542276,
+      "brightness_mean": 0.16571231840420847,
+      "target_area_median": 0.13833496025658912
+    }
+  },
+  "offdiagonal_top": [
+    {
+      "true": "A220",
+      "pred": "A320321",
+      "ratio": 0.15942028985507245
+    },
+    {
+      "true": "A320321",
+      "pred": "A220",
+      "ratio": 0.10810810810810811
+    },
+    {
+      "true": "A320321",
+      "pred": "A330",
+      "ratio": 0.04054054054054054
+    },
+    {
+      "true": "ARJ21",
+      "pred": "A320321",
+      "ratio": 0.039473684210526314
+    },
+    {
+      "true": "A320321",
+      "pred": "Boeing737",
+      "ratio": 0.02702702702702703
+    },
+    {
+      "true": "ARJ21",
+      "pred": "A220",
+      "ratio": 0.02631578947368421
+    },
+    {
+      "true": "A220",
+      "pred": "Boeing737",
+      "ratio": 0.014492753623188406
+    },
+    {
+      "true": "Boeing787",
+      "pred": "A320321",
+      "ratio": 0.0136986301369863
+    }
+  ]
+}

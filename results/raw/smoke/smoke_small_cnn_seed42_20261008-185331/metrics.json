@@ -1,0 +1,66 @@
+{
+  "mode": "smoke",
+  "is_smoke": true,
+  "model": "small_cnn",
+  "model_type": "SmallCNN",
+  "seed": 42,
+  "epochs_planned": 2,
+  "epochs_run": 2,
+  "best_epoch": 2,
+  "best_val_macro_f1": 0.2333333333333333,
+  "final_train_loss": 1.73699951171875,
+  "final_val_loss": 1.8227354685465496,
+  "best_val_acc": 0.3333333333333333,
+  "total_time_sec": 4.557761907577515,
+  "n_params_total": 287654,
+  "n_params_trainable": 287654,
+  "class_names": [
+    "A220",
+    "A320321",
+    "A330",
+    "ARJ21",
+    "Boeing737",
+    "Boeing787"
+  ],
+  "data": {
+    "n_train": 48,
+    "n_val": 6,
+    "n_test": 6,
+    "image_size": 96,
+    "normalize": {
+      "mean": 0.05490503692072893,
+      "std": 0.10374021568829728,
+      "mode": "train_stats"
+    }
+  },
+  "split_checks": {
+    "n": {
+      "train": 48,
+      "val": 6,
+      "test": 6
+    },
+    "path_overlap": 0,
+    "md5_overlap": 0,
+    "max_class_proportion_deviation": 0.0,
+    "stratify_tol": 0.02,
+    "passed": true
+  },
+  "sanity_check": {
+    "input_shape": [
+      4,
+      1,
+      96,
+      96
+    ],
+    "output_shape": [
+      4,
+      6
+    ],
+    "loss_value": 1.889404296875,
+    "n_grad_tensors": 20,
+    "total_grad_norm": 14.077546413987875,
+    "passed": true
+  },
+  "test_set_used_in_training": false,
+  "note": "冒烟测试结果，不得作为正式结论"
+}

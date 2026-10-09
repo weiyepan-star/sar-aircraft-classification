@@ -1,0 +1,14 @@
+{
+  "entries": [
+    {
+      "time": "2026-10-08T19:30:33",
+      "split": "test",
+      "n_samples": 446,
+      "accuracy": 0.6569506726457399,
+      "macro_f1": 0.6531906562455102,
+      "command": "src\\evaluate.py --run results\\raw\\cnn_seed2024"
+    }
+  ],
+  "n_evaluations": 1,
+  "policy": "测试集原则上只评估一次（G2 / IC5）"
+}

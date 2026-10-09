@@ -1,0 +1,149 @@
+project:
+  name: sar-aircraft-classification
+  seed: 42
+paths:
+  data_root: data/SAR-ACD/images
+  results_raw: results/raw
+  results_summary: results/summary
+  figures: figures
+  report: report
+audit:
+  check_decodable: true
+  check_channels: true
+  check_size: true
+  check_brightness: true
+  dedup_md5: true
+  output_json: results/raw/data_audit.json
+  output_dedup_csv: results/raw/dedup_report.csv
+dedup:
+  enabled: true
+  cross_class_policy: drop_both
+  same_class_policy: keep_first
+  expected_total_before: 3032
+  expected_total_after: 2990
+split:
+  method: stratified
+  seed: 42
+  ratios:
+    train: 0.7
+    val: 0.15
+    test: 0.15
+  assert_no_overlap: true
+  assert_no_md5_overlap: true
+  assert_stratify_tol: 0.02
+  output_csv: results/raw/split_index.csv
+data:
+  image_size: 96
+  grayscale: true
+  num_classes: 6
+  class_names:
+  - A220
+  - A320321
+  - A330
+  - ARJ21
+  - Boeing737
+  - Boeing787
+  max_per_class: 10
+  audit_sample: null
+normalize:
+  mode: train_stats
+  stats_source: train_split_only
+augment:
+  train:
+    rotation_degrees: 30
+    translate: 0.05
+    scale:
+    - 0.9
+    - 1.1
+    horizontal_flip: true
+    vertical_flip: true
+    brightness_jitter: 0.0
+    contrast_jitter: 0.0
+  val: {}
+  test: {}
+models:
+- name: small_cnn
+  type: SmallCNN
+  pretrained: false
+  channels:
+  - 32
+  - 64
+  - 128
+  dropout: 0.5
+  enabled: true
+channel_ablation:
+  enabled: false
+  conv1_weight_reduce: mean
+train:
+  epochs: 2
+  batch_size: 4
+  optimizer: AdamW
+  lr: 0.001
+  lr_backbone: 0.0001
+  weight_decay: 0.0001
+  scheduler: cosine
+  loss: CrossEntropyLoss
+  class_weights: null
+  early_stopping:
+    enabled: false
+    monitor: val_macro_f1
+    patience: 10
+    mode: max
+  amp: true
+  num_workers: 0
+  seeds:
+  - 42
+evaluate:
+  split: test
+  checkpoint: best_val_macro_f1
+  metrics:
+  - accuracy
+  - macro_f1
+  - weighted_f1
+  - per_class_precision
+  - per_class_recall
+  - per_class_f1
+  - confusion_matrix
+  report_mean_std: true
+  report_per_seed: true
+error_analysis:
+  export_correct_per_class: 6
+  export_all_wrong: true
+  export_uncertain_topk: 50
+  export_confusion_pairs_per_pair: 6
+  uncertain_metric: max_softmax
+gradcam:
+  enabled: false
+  target_layer_resnet: layer4
+  target_layer_smallcnn: block3
+  n_correct_per_class: 3
+  n_wrong_max: 20
+  n_uncertain: 10
+  export_background_hits: true
+background_ablation:
+  enabled: false
+  crop_ratio: 0.3
+  expect: accuracy_drop
+baselines:
+  majority_class: true
+  shuffled_labels: true
+sensitivity:
+  input_sizes:
+  - 64
+  - 96
+  - 128
+  enabled: false
+output:
+  save_checkpoints: true
+  figures_format:
+  - pdf
+  - png
+  figure_language: en
+  summary_tables:
+  - csv
+  - markdown
+_config_path: configs\smoke_test.yaml
+run:
+  mode: smoke
+  tag: smoke
+_project_root: E:\sar-aircraft-classification

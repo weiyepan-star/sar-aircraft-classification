@@ -1,0 +1,136 @@
+2026-10-08 19:28:35 | INFO    | ========================================================================
+2026-10-08 19:28:35 | INFO    | 生成图表: cnn_seed123
+2026-10-08 19:28:35 | INFO    | 模式      : smoke | 输出目录: results\raw\cnn_seed123\figures
+2026-10-08 19:28:35 | WARNING | 冒烟运行的图写入自身目录，**不会进入项目的 figures/**
+2026-10-08 19:28:35 | INFO    | ------------------------------------------------------------------------
+2026-10-08 19:28:35 | INFO    | fig1 训练曲线
+2026-10-08 19:28:35 | INFO    |   训练曲线: 32 轮，最佳 macro-F1 在第 22 轮
+2026-10-08 19:28:35 | INFO    | ------------------------------------------------------------------------
+2026-10-08 19:28:35 | INFO    | fig3 混淆矩阵与每类指标
+2026-10-08 19:28:36 | INFO    |   每类 F1: {'A220': 0.4627, 'A320321': 0.6196, 'A330': 0.6892, 'ARJ21': 0.659, 'Boeing737': 0.5082, 'Boeing787': 0.5649}
+2026-10-08 19:28:36 | INFO    | ------------------------------------------------------------------------
+2026-10-08 19:28:36 | INFO    | fig4 错误样例可视化
+2026-10-08 19:29:38 | INFO    | ------------------------------------------------------------------------
+2026-10-08 19:29:38 | INFO    | fig0 数据探索
+2026-10-08 19:29:41 | INFO    |   数据探索图已生成
+2026-10-08 19:29:41 | INFO    | ------------------------------------------------------------------------
+2026-10-08 19:29:41 | INFO    | fig5 Grad-CAM 可解释性（数据来自 gradcam.py）
+2026-10-08 19:29:53 | INFO    |   fig5a_gradcam_correct                    16 张
+2026-10-08 19:30:05 | INFO    |   fig5b_gradcam_wrong                      16 张
+2026-10-08 19:30:14 | INFO    |   fig5c_gradcam_background                 12 张
+2026-10-08 19:30:14 | INFO    |   fig5d_background_ablation                Δaccuracy=-0.4058
+2026-10-08 19:30:14 | INFO    | ========================================================================
+2026-10-08 19:30:14 | INFO    | 共生成 30 个图文件：
+2026-10-08 19:30:14 | INFO    |   fig1a_train_curve_cnn_baseline_seed123.pdf                          20.0 KB
+2026-10-08 19:30:14 | INFO    |   fig1a_train_curve_cnn_baseline_seed123.png                          91.6 KB
+2026-10-08 19:30:14 | INFO    |   fig1b_metric_curve_cnn_baseline_seed123.pdf                         22.5 KB
+2026-10-08 19:30:14 | INFO    |   fig1b_metric_curve_cnn_baseline_seed123.png                        105.1 KB
+2026-10-08 19:30:14 | INFO    |   fig3a_confusion_matrix.pdf                                          27.9 KB
+2026-10-08 19:30:14 | INFO    |   fig3a_confusion_matrix.png                                          92.3 KB
+2026-10-08 19:30:14 | INFO    |   fig3b_confusion_matrix_norm.pdf                                     28.5 KB
+2026-10-08 19:30:14 | INFO    |   fig3b_confusion_matrix_norm.png                                    115.7 KB
+2026-10-08 19:30:14 | INFO    |   fig3c_per_class_metrics.pdf                                         17.6 KB
+2026-10-08 19:30:14 | INFO    |   fig3c_per_class_metrics.png                                         72.1 KB
+2026-10-08 19:30:14 | INFO    |   fig3d_per_class_f1_rank.pdf                                         16.5 KB
+2026-10-08 19:30:14 | INFO    |   fig3d_per_class_f1_rank.png                                         55.1 KB
+2026-10-08 19:30:14 | INFO    |   fig4a_correct_samples.pdf                                          471.5 KB
+2026-10-08 19:30:14 | INFO    |   fig4a_correct_samples.png                                          723.8 KB
+2026-10-08 19:30:14 | INFO    |   fig4b_wrong_samples.pdf                                           2213.7 KB
+2026-10-08 19:30:14 | INFO    |   fig4b_wrong_samples.png                                           3847.8 KB
+2026-10-08 19:30:14 | INFO    |   fig4c_uncertain_samples.pdf                                        237.7 KB
+2026-10-08 19:30:14 | INFO    |   fig4c_uncertain_samples.png                                        444.9 KB
+2026-10-08 19:30:14 | INFO    |   fig4d_confusion_pairs.pdf                                          531.3 KB
+2026-10-08 19:30:14 | INFO    |   fig4d_confusion_pairs.png                                          837.7 KB
+2026-10-08 19:30:14 | INFO    |   fig0_data_eda.pdf                                                  102.0 KB
+2026-10-08 19:30:14 | INFO    |   fig0_data_eda.png                                                  265.2 KB
+2026-10-08 19:30:14 | INFO    |   fig5a_gradcam_correct.pdf                                          787.5 KB
+2026-10-08 19:30:14 | INFO    |   fig5a_gradcam_correct.png                                         1109.1 KB
+2026-10-08 19:30:14 | INFO    |   fig5b_gradcam_wrong.pdf                                            691.8 KB
+2026-10-08 19:30:14 | INFO    |   fig5b_gradcam_wrong.png                                            996.9 KB
+2026-10-08 19:30:14 | INFO    |   fig5c_gradcam_background.pdf                                       582.0 KB
+2026-10-08 19:30:14 | INFO    |   fig5c_gradcam_background.png                                       835.9 KB
+2026-10-08 19:30:14 | INFO    |   fig5d_background_ablation.pdf                                       19.7 KB
+2026-10-08 19:30:14 | INFO    |   fig5d_background_ablation.png                                       50.8 KB
+2026-10-08 19:30:14 | INFO    | ========================================================================
+2026-10-08 19:34:58 | INFO    | ========================================================================
+2026-10-08 19:34:58 | INFO    | 生成图表: cnn_seed123
+2026-10-08 19:34:58 | INFO    | 模式      : smoke | 输出目录: results\raw\cnn_seed123\figures
+2026-10-08 19:34:58 | WARNING | 冒烟运行的图写入自身目录，**不会进入项目的 figures/**
+2026-10-08 19:34:58 | INFO    | ------------------------------------------------------------------------
+2026-10-08 19:34:58 | INFO    | fig5 Grad-CAM 可解释性（数据来自 gradcam.py）
+2026-10-08 19:35:03 | INFO    |   fig5a_gradcam_correct                    16 张
+2026-10-08 19:35:16 | INFO    |   fig5b_gradcam_wrong                      16 张
+2026-10-08 19:35:26 | INFO    |   fig5c_gradcam_background                 12 张
+2026-10-08 19:39:33 | INFO    | ========================================================================
+2026-10-08 19:39:33 | INFO    | 生成图表: cnn_seed123
+2026-10-08 19:39:33 | INFO    | 模式      : formal | 输出目录: E:\sar-aircraft-classification\figures
+2026-10-08 19:39:33 | INFO    | ------------------------------------------------------------------------
+2026-10-08 19:39:33 | INFO    | fig1 训练曲线
+2026-10-08 19:39:33 | INFO    |   训练曲线: 32 轮，最佳 macro-F1 在第 22 轮
+2026-10-08 19:39:33 | INFO    | ------------------------------------------------------------------------
+2026-10-08 19:39:33 | INFO    | fig3 混淆矩阵与每类指标
+2026-10-08 19:39:34 | INFO    |   每类 F1: {'A220': 0.4627, 'A320321': 0.6196, 'A330': 0.6892, 'ARJ21': 0.659, 'Boeing737': 0.5082, 'Boeing787': 0.5649}
+2026-10-08 19:39:34 | INFO    | ------------------------------------------------------------------------
+2026-10-08 19:39:34 | INFO    | fig4 错误样例可视化
+2026-10-08 19:40:37 | INFO    | ------------------------------------------------------------------------
+2026-10-08 19:40:37 | INFO    | fig0 数据探索
+2026-10-08 19:40:39 | INFO    |   数据探索图已生成
+2026-10-08 19:40:39 | INFO    | ------------------------------------------------------------------------
+2026-10-08 19:40:39 | INFO    | fig5 Grad-CAM 可解释性（数据来自 gradcam.py）
+2026-10-08 19:40:51 | INFO    |   fig5a_gradcam_correct                    16 张
+2026-10-08 19:41:03 | INFO    |   fig5b_gradcam_wrong                      16 张
+2026-10-08 19:41:13 | INFO    |   fig5c_gradcam_background                 12 张
+2026-10-08 19:41:13 | INFO    |   fig5d_background_ablation                Δfill=-0.4215  Δcrop=-0.4058
+2026-10-08 19:41:13 | INFO    | ========================================================================
+2026-10-08 19:41:13 | INFO    | 共生成 30 个图文件：
+2026-10-08 19:41:13 | INFO    |   cnn_seed123__fig1a_train_curve_cnn_baseline_seed123.pdf             20.0 KB
+2026-10-08 19:41:13 | INFO    |   cnn_seed123__fig1a_train_curve_cnn_baseline_seed123.png             91.6 KB
+2026-10-08 19:41:13 | INFO    |   cnn_seed123__fig1b_metric_curve_cnn_baseline_seed123.pdf            22.5 KB
+2026-10-08 19:41:13 | INFO    |   cnn_seed123__fig1b_metric_curve_cnn_baseline_seed123.png           105.1 KB
+2026-10-08 19:41:13 | INFO    |   cnn_seed123__fig3a_confusion_matrix.pdf                             27.9 KB
+2026-10-08 19:41:13 | INFO    |   cnn_seed123__fig3a_confusion_matrix.png                             92.3 KB
+2026-10-08 19:41:13 | INFO    |   cnn_seed123__fig3b_confusion_matrix_norm.pdf                        28.5 KB
+2026-10-08 19:41:13 | INFO    |   cnn_seed123__fig3b_confusion_matrix_norm.png                       115.7 KB
+2026-10-08 19:41:13 | INFO    |   cnn_seed123__fig3c_per_class_metrics.pdf                            17.6 KB
+2026-10-08 19:41:13 | INFO    |   cnn_seed123__fig3c_per_class_metrics.png                            72.1 KB
+2026-10-08 19:41:13 | INFO    |   cnn_seed123__fig3d_per_class_f1_rank.pdf                            16.5 KB
+2026-10-08 19:41:13 | INFO    |   cnn_seed123__fig3d_per_class_f1_rank.png                            55.1 KB
+2026-10-08 19:41:13 | INFO    |   cnn_seed123__fig4a_correct_samples.pdf                             471.5 KB
+2026-10-08 19:41:13 | INFO    |   cnn_seed123__fig4a_correct_samples.png                             723.8 KB
+2026-10-08 19:41:13 | INFO    |   cnn_seed123__fig4b_wrong_samples.pdf                              2213.7 KB
+2026-10-08 19:41:13 | INFO    |   cnn_seed123__fig4b_wrong_samples.png                              3847.8 KB
+2026-10-08 19:41:13 | INFO    |   cnn_seed123__fig4c_uncertain_samples.pdf                           237.7 KB
+2026-10-08 19:41:13 | INFO    |   cnn_seed123__fig4c_uncertain_samples.png                           444.9 KB
+2026-10-08 19:41:13 | INFO    |   cnn_seed123__fig4d_confusion_pairs.pdf                             531.3 KB
+2026-10-08 19:41:13 | INFO    |   cnn_seed123__fig4d_confusion_pairs.png                             837.7 KB
+2026-10-08 19:41:13 | INFO    |   cnn_seed123__fig0_data_eda.pdf                                     102.0 KB
+2026-10-08 19:41:13 | INFO    |   cnn_seed123__fig0_data_eda.png                                     265.2 KB
+2026-10-08 19:41:13 | INFO    |   cnn_seed123__fig5a_gradcam_correct.pdf                             787.5 KB
+2026-10-08 19:41:13 | INFO    |   cnn_seed123__fig5a_gradcam_correct.png                            1109.1 KB
+2026-10-08 19:41:13 | INFO    |   cnn_seed123__fig5b_gradcam_wrong.pdf                               691.8 KB
+2026-10-08 19:41:13 | INFO    |   cnn_seed123__fig5b_gradcam_wrong.png                               996.9 KB
+2026-10-08 19:41:13 | INFO    |   cnn_seed123__fig5c_gradcam_background.pdf                          582.0 KB
+2026-10-08 19:41:13 | INFO    |   cnn_seed123__fig5c_gradcam_background.png                          835.9 KB
+2026-10-08 19:41:13 | INFO    |   cnn_seed123__fig5d_background_ablation.pdf                          26.6 KB
+2026-10-08 19:41:13 | INFO    |   cnn_seed123__fig5d_background_ablation.png                          70.8 KB
+2026-10-08 19:41:13 | INFO    | ========================================================================
+2026-10-08 19:44:19 | INFO    | ========================================================================
+2026-10-08 19:44:19 | INFO    | 生成图表: cnn_seed123
+2026-10-08 19:44:19 | INFO    | 模式      : formal | 输出目录: E:\sar-aircraft-classification\figures
+2026-10-08 19:44:19 | INFO    | ------------------------------------------------------------------------
+2026-10-08 19:44:19 | INFO    | fig5 Grad-CAM 可解释性（数据来自 gradcam.py）
+2026-10-08 19:44:24 | INFO    |   fig5a_gradcam_correct                    16 张
+2026-10-08 19:44:37 | INFO    |   fig5b_gradcam_wrong                      16 张
+2026-10-08 19:44:47 | INFO    |   fig5c_gradcam_background                 12 张
+2026-10-08 19:44:48 | INFO    |   fig5d_background_ablation                Δfill=-0.4215  Δcrop=-0.4058
+2026-10-08 19:44:48 | INFO    | ========================================================================
+2026-10-08 19:44:48 | INFO    | 共生成 8 个图文件：
+2026-10-08 19:44:48 | INFO    |   cnn_seed123__fig5a_gradcam_correct.pdf                             787.5 KB
+2026-10-08 19:44:48 | INFO    |   cnn_seed123__fig5a_gradcam_correct.png                            1109.1 KB
+2026-10-08 19:44:48 | INFO    |   cnn_seed123__fig5b_gradcam_wrong.pdf                               691.8 KB
+2026-10-08 19:44:48 | INFO    |   cnn_seed123__fig5b_gradcam_wrong.png                               996.9 KB
+2026-10-08 19:44:48 | INFO    |   cnn_seed123__fig5c_gradcam_background.pdf                          582.0 KB
+2026-10-08 19:44:48 | INFO    |   cnn_seed123__fig5c_gradcam_background.png                          835.9 KB
+2026-10-08 19:44:48 | INFO    |   cnn_seed123__fig5d_background_ablation.pdf                          39.2 KB
+2026-10-08 19:44:48 | INFO    |   cnn_seed123__fig5d_background_ablation.png                          84.1 KB
+2026-10-08 19:44:48 | INFO    | ========================================================================

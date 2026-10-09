@@ -1,0 +1,12 @@
+{
+  "n": {
+    "train": 2098,
+    "val": 446,
+    "test": 446
+  },
+  "path_overlap": 0,
+  "md5_overlap": 0,
+  "max_class_proportion_deviation": 0.0012,
+  "stratify_tol": 0.01,
+  "passed": true
+}

@@ -1,0 +1,6 @@
+{
+  "mode": "train_stats",
+  "mean": 0.05722176315828058,
+  "std": 0.10497657020391844,
+  "source": "train_split_only"
+}

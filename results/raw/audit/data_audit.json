@@ -1,0 +1,38 @@
+{
+  "checked": 3032,
+  "n_corrupted": 0,
+  "corrupted_files": [],
+  "modes": {
+    "L": 3032
+  },
+  "n_unique_sizes": 635,
+  "width": {
+    "min": 35,
+    "max": 200,
+    "mean": 91.60059366754618
+  },
+  "height": {
+    "min": 32,
+    "max": 150,
+    "mean": 83.03759894459102
+  },
+  "n_images_scanned": 3032,
+  "class_counts_raw": {
+    "A220": 464,
+    "A320321": 510,
+    "A330": 512,
+    "ARJ21": 514,
+    "Boeing737": 528,
+    "Boeing787": 504
+  },
+  "n_after_dedup": 2990,
+  "n_dropped": 42,
+  "class_counts_after_dedup": {
+    "A220": 460,
+    "A320321": 498,
+    "A330": 501,
+    "ARJ21": 513,
+    "Boeing737": 528,
+    "Boeing787": 490
+  }
+}

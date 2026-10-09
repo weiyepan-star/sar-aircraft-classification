@@ -1,0 +1,176 @@
+{
+  "n_samples": 6,
+  "accuracy": 0.3333333333333333,
+  "macro_f1": 0.16666666666666666,
+  "weighted_f1": 0.16666666666666666,
+  "per_class": {
+    "A220": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 1
+    },
+    "A320321": {
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "f1": 0.5,
+      "support": 1
+    },
+    "A330": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 1
+    },
+    "ARJ21": {
+      "precision": 0.3333333333333333,
+      "recall": 1.0,
+      "f1": 0.5,
+      "support": 1
+    },
+    "Boeing737": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 1
+    },
+    "Boeing787": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "support": 1
+    }
+  },
+  "label_mapping": {
+    "0": "A220",
+    "1": "A320321",
+    "2": "A330",
+    "3": "ARJ21",
+    "4": "Boeing737",
+    "5": "Boeing787"
+  },
+  "confusion_matrix": [
+    [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "confusion_matrix_normalized": [
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  ],
+  "n_errors": 4,
+  "mean_confidence": 0.2594161331653595,
+  "mean_confidence_correct": 0.2527514100074768,
+  "mean_confidence_wrong": 0.26274850964546204,
+  "macro_weighted_f1_gap": 0.0,
+  "run": "smoke_small_cnn_seed42_20261008-183023",
+  "model": "small_cnn",
+  "seed": 42,
+  "split": "test",
+  "checkpoint": "best_model.pt",
+  "checkpoint_selected_by": "val_macro_f1 (IC5)",
+  "evaluated_at": "2026-10-08T18:41:35",
+  "device": "cuda",
+  "error_analysis": {
+    "n_predictions": 6,
+    "n_errors": 4,
+    "n_uncertain_exported": 6,
+    "error_class_pairs": {
+      "A220->ARJ21": 1,
+      "A330->A320321": 1,
+      "Boeing737->ARJ21": 1,
+      "Boeing787->A320321": 1
+    }
+  }
+}
